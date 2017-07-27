@@ -67,7 +67,16 @@ if(!Vector2) {
     return [toConvert.x, toConvert.y];
   };
   Vector2.reflect = function(toReflect, linePoint1, linePoint2) {
-    return Vector2.sub(toReflect, Vector2.mult(Vector2.sub(toReflect, [(Equation.B(linePoint1, linePoint2) - Equation.TB(Equation.PM(linePoint1, linePoint2), toReflect)) / (Equation.PM(linePoint1, linePoint2) - Equation.M(linePoint1, linePoint2)), Equation.M(linePoint1, linePoint2) * (Equation.B(linePoint1, linePoint2) - Equation.TB(Equation.PM(linePoint1, linePoint2), toReflect)) / (Equation.PM(linePoint1, linePoint2) - Equation.M(linePoint1, linePoint2)) + Equation.B(linePoint1, linePoint2)]), 2));
+    return Vector2.sub(toReflect, 
+      Vector2.mult(
+        Vector2.sub(toReflect,
+          [(Equation.B(linePoint1, linePoint2) - Equation.TB(Equation.PM(linePoint1, linePoint2), toReflect)) /
+           (Equation.PM(linePoint1, linePoint2) - Equation.M(linePoint1, linePoint2)), Equation.M(linePoint1, linePoint2) * 
+           (Equation.B(linePoint1, linePoint2) - Equation.TB(Equation.PM(linePoint1, linePoint2), toReflect)) / 
+           (Equation.PM(linePoint1, linePoint2) - Equation.M(linePoint1, linePoint2)) + Equation.B(linePoint1, linePoint2)]
+        ), 
+      2)
+    );
   };
 
   Vector2.prototype.add = function(toAdd) {
@@ -124,7 +133,16 @@ if(!Vector2) {
     return [this.x, this.y];
   };
   Vector2.prototype.reflect = function(linePoint1, linePoint2) {
-    return Vector2.sub(this, Vector2.mult(Vector2.sub(this, [(Equation.B(linePoint1, linePoint2) - Equation.TB(Equation.PM(linePoint1, linePoint2), this)) / (Equation.PM(linePoint1, linePoint2) - Equation.M(linePoint1, linePoint2)), Equation.M(linePoint1, linePoint2) * (Equation.B(linePoint1, linePoint2) - Equation.TB(Equation.PM(linePoint1, linePoint2), this)) / (Equation.PM(linePoint1, linePoint2) - Equation.M(linePoint1, linePoint2)) + Equation.B(linePoint1, linePoint2)]), 2));
+    return Vector2.sub(this, 
+      Vector2.mult(
+        Vector2.sub(this,
+          [(Equation.B(linePoint1, linePoint2) - Equation.TB(Equation.PM(linePoint1, linePoint2), this)) /
+           (Equation.PM(linePoint1, linePoint2) - Equation.M(linePoint1, linePoint2)), Equation.M(linePoint1, linePoint2) * 
+           (Equation.B(linePoint1, linePoint2) - Equation.TB(Equation.PM(linePoint1, linePoint2), this)) / 
+           (Equation.PM(linePoint1, linePoint2) - Equation.M(linePoint1, linePoint2)) + Equation.B(linePoint1, linePoint2)]
+        ), 
+      2)
+    );
   };
 }
 
