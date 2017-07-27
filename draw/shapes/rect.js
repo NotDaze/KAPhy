@@ -20,18 +20,19 @@ Draw.rect = function(x, y, w, h, tl, tr, br, bl) {
   br = br || tl;
   bl = bl || tl;
   
-  ctx.beginPath();
-  ctx.moveTo(realX + tl, realY);
-  ctx.lineTo(realX + realW - tr, realY);
-  ctx.quadraticCurveTo(realX + realW, realY, realX + realW, realY + tr);
-  ctx.lineTo(realX + realW, realY + realH - br);
-  ctx.quadraticCurveTo(realX + realW, realY + realH, realX + realW - br, realY + realH);
-  ctx.lineTo(realX + bl, realY + realH);
-  ctx.quadraticCurveTo(x, realY + realH, realX, realY + realH - bl);
-  ctx.lineTo(realX, realY + tl);
-  ctx.quadraticCurveTo(realX, realY, realX + tl, realY);
-  ctx.closePath();
+  Canvas.context.beginPath();
   
-  ctx.fill();
-  ctx.stroke();
+  Canvas.context.moveTo(realX + tl, realY);
+  Canvas.context.lineTo(realX + realW - tr, realY);
+  Canvas.context.quadraticCurveTo(realX + realW, realY, realX + realW, realY + tr);
+  Canvas.context.lineTo(realX + realW, realY + realH - br);
+  Canvas.context.quadraticCurveTo(realX + realW, realY + realH, realX + realW - br, realY + realH);
+  Canvas.context.lineTo(realX + bl, realY + realH);
+  Canvas.context.quadraticCurveTo(x, realY + realH, realX, realY + realH - bl);
+  Canvas.context.lineTo(realX, realY + tl);
+  Canvas.context.quadraticCurveTo(realX, realY, realX + tl, realY);
+  Canvas.context.closePath();
+  
+  Canvas.context.fill();
+  Canvas.context.stroke();
 };
