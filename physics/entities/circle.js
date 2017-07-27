@@ -52,7 +52,7 @@ Physics.Circle.prototype.update = function() {
 Physics.Circle.prototype.draw = function() {
   ctx.beginPath();
   ctx.fillStyle = "#FF0000";
-  ctx.ellipse(this.pos.x * canvas.width/600, this.pos.y * canvas.height/500, this.rad * canvas.width/600, this.rad * canvas.height/500, 0, 0, 6.279);
+  ctx.ellipse(this.pos.x, this.pos.y, this.rad, this.rad, 0, 0, 6.279);
   ctx.fill();
 };
 Physics.Circle.prototype.display = function() {
