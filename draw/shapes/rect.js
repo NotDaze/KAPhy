@@ -21,23 +21,32 @@ if (!Draw.rect) {
         realY = y - h / 2;
         break;
     }
+    
+    if(Canvas.configured) {
+      realX = Canvas.getX(realX);
+      realY = Canvas.getY(realY);
+      realW = Canvas.getX(realW);
+      realH = Canvas.getY(realH);
+    }
 
     tl = tl || 0;
     tr = tr || tl;
     br = br || tl;
     bl = bl || tl;
+    
+    tl = Canvas.getX(tl);
 
     Canvas.context.beginPath();
 
-    Canvas.context.moveTo(realX + tl, realY);
-    Canvas.context.lineTo(realX + realW - tr, realY);
-    Canvas.context.quadraticCurveTo(realX + realW, realY, realX + realW, realY + tr);
-    Canvas.context.lineTo(realX + realW, realY + realH - br);
-    Canvas.context.quadraticCurveTo(realX + realW, realY + realH, realX + realW - br, realY + realH);
-    Canvas.context.lineTo(realX + bl, realY + realH);
-    Canvas.context.quadraticCurveTo(x, realY + realH, realX, realY + realH - bl);
-    Canvas.context.lineTo(realX, realY + tl);
-    Canvas.context.quadraticCurveTo(realX, realY, realX + tl, realY);
+    Canvas.context.moveTo(realX + Canvas.getX(tl), realY);
+    Canvas.context.lineTo(realX + realW - Canvas.getX(tr), realY);
+    Canvas.context.quadraticCurveTo(realX + realW, realY, realX + realW, realY + Canvas.getY(tr));
+    Canvas.context.lineTo(realX + realW, realY + realH - Canvas.getX(br));
+    Canvas.context.quadraticCurveTo(realX + realW, realY + realH, realX + realW - Canvas.getX(br), realY + realH);
+    Canvas.context.lineTo(realX + Canvas.getX(bl), realY + realH);
+    Canvas.context.quadraticCurveTo(x, realY + realH, realX, realY + realH - Canvas.getY(bl));
+    Canvas.context.lineTo(realX, realY + Canvas.getY(tl));
+    Canvas.context.quadraticCurveTo(realX, realY, realX + Canvas.getX(tl), realY);
     Canvas.context.closePath();
 
     Canvas.context.fill();
