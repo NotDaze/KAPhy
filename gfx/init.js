@@ -6,7 +6,7 @@ if(!loaded) {
   
   gfxToLoad.testImage = new Image();
   
-  gfxToLoad.testImage.src = "./testimage.png";
+  gfxToLoad.testImage.src = "https://github.com/TemporalFuzz/KAPhy/gfx/testimage.png";
   
   var loadEvent = new Event("imageLoad");
   
