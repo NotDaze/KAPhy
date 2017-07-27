@@ -8,4 +8,6 @@ const Physics = {
   constraintAdjustment: 0.3,//How much rigid constraints adjust the 
   
   sleepThreshold: 2,//Maximum velocity at which any circle can be "asleep".
+  
+  circleAdjustment: 0.3
 };
