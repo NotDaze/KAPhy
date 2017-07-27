@@ -1,5 +1,10 @@
 if(!Draw.fill) {
   Draw.fill = function(r, g, b, a) {
+    if(!Canvas.configured) {
+      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+      return;
+    }
+    
     switch(arguments.length) {
       case 0: Canvas.context.fillStyle = "#FFFFFF"; break;
       case 1: Canvas.context.fillStyle = "rgb(" + arguments[0] + ", " + arguments[0] + ", " + arguments[0] + ")"; break;
