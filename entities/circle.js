@@ -31,7 +31,7 @@ Physics.Circle = function(config) {
 Physics.Circle.prototype.update = function() {
   if(this.fixed) {
     this.asleep = false;
-    this.vel = [0, 0];
+    this.vel = new Vector2();
     return;
   }
   
@@ -52,7 +52,7 @@ Physics.Circle.prototype.update = function() {
 Physics.Circle.prototype.draw = function() {
   ctx.beginPath();
   ctx.fillStyle = "#FF0000";
-  ctx.ellipse(this.pos[0] * canvas.width/600, this.pos[1] * canvas.height/500, this.rad * canvas.width/600, this.rad * canvas.height/500, 0, 0, 6.279);
+  ctx.ellipse(this.pos.x * canvas.width/600, this.pos.y * canvas.height/500, this.rad * canvas.width/600, this.rad * canvas.height/500, 0, 0, 6.279);
   ctx.fill();
 };
 Physics.Circle.prototype.display = function() {
@@ -73,7 +73,7 @@ Physics.Circle.prototype.manageAdjustments = function() {
     return;
   }
   
-  var adjustmentAvg = [0, 0];
+  var adjustmentAvg = new Vector2();
   for(var i = 0; i < this.posAdjustments.length; i++) {
     adjustmentAvg.add(this.posAdjustments[i]);
   }
@@ -87,8 +87,8 @@ Physics.Circle.prototype.trySleep = function() {
   }
 };
 Physics.Circle.prototype.collideLine = function(line) {
-  if(line.one[0] === line.two[0] ||
-     line.one[1] === line.two[1]) { return; }
+  if(line.one.x === line.two.x ||
+     line.one.y === line.two.y) { return; }
   
   if(!circleCollidingLine(line.one, line.two, this.pos, this.rad + line.rad)) {
     return;
@@ -101,7 +101,7 @@ Physics.Circle.prototype.collideLine = function(line) {
   else{
     var n = intersection(this.pos, Vector2.reflect(this.pos, line.one, line.two), line.one, line.two);
     this.vel = Vector2.mult(Vector2.sub(n, Vector2.reflect(Vector2.sub(n, this.vel), n, Vector2.add(n, [1, PM(line.one, line.two)]))), -line.bcf * this.bcf);
-    this.pos = Vector2.add(n, Vector2.mult(Vector2.norm([1, PM(line.one, line.two)]), (this.rad + line.rad) * (this.pos[1] > n[1] ? -1 : 1) * (line.one[0] > line.two[0] ? -1 : 1) * (line.one[1] > line.two[1] ? -1 : 1)));
+    this.pos = Vector2.add(n, Vector2.mult(Vector2.norm(new Vector2(1, PM(line.one, line.two))), (this.rad + line.rad) * (this.pos.y > n.y ? -1 : 1) * (line.one.x > line.two.x ? -1 : 1) * (line.one.y > line.two.y ? -1 : 1)));
   }
   this.trySleep();
 };
