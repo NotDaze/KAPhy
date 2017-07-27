@@ -7,6 +7,6 @@ Canvas.configure = function(canvasElement) {
   Canvas.element = canvasElement;
   Canvas.configured = true;
   
-  Canvas.width  = canvasElement.width;
-  Canvas.height = canvasElement.height;
+  Canvas.relWidth  = canvasElement.width;
+  Canvas.relHeight = canvasElement.height;
 };
