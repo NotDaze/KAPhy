@@ -3,7 +3,7 @@ const CORNER = "CORNER";
 const RADIUS = "RADIUS";
 const CORNERS = "CORNERS";
 
-var Draw = {
+const Draw = {
   currentRectMode: "CORNER",
   currentEllipseMode: "CENTER",
 };
