@@ -1,5 +1,6 @@
 var Canvas = {
   configured: false,
-  widthRelative: null,
-  heightRelative: null,
+  relWidth: null,
+  relHeight: null,
+  element: null
 };
