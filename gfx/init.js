@@ -6,8 +6,6 @@ if(!loaded) {
   
   gfxToLoad.testImage = new Image();
   
-  gfxToLoad.testImage.src = "https://rawgit.com/TemporalFuzz/KAPhy/master/gfx/testimage.png";
-  
   var loadEvent = new Event("imageLoad");
   
   testImage.onload = function() {
@@ -15,4 +13,6 @@ if(!loaded) {
     gfxLoaded.testImage = testImage;
     document.dispatchEvent("imageLoad");
   };
+  
+  gfxToLoad.testImage.src = "https://rawgit.com/TemporalFuzz/KAPhy/master/gfx/testimage.png";
 }
