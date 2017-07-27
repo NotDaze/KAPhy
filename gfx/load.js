@@ -8,6 +8,6 @@ if(!loaded) {
       imagesLoaded++;
       Images[i] = this;
     };
-    Images[i].src = oldVal;
+    ImagesToLoad[i].src = oldVal;
   }
 }
