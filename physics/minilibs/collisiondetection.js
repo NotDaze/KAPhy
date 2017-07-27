@@ -1,6 +1,6 @@
 var intersection = function(a, b, c, d) {
   var X = (Equation.B(c, d) - Equation.B(a, b))/(Equation.M(a, b) - Equation.M(c, d));
-  return [X, Equation.M(a, b) * X + Equation.BEquation.(a, b)];
+  return [X, Equation.M(a, b) * X + Equation.B(a, b)];
 };
 var intersecting = function(a, b, c, d) {
   var p = intersection(a, b, c, d);
