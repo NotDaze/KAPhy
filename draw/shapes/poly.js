@@ -7,8 +7,8 @@ if(!Draw.poly) {
     
     Canvas.context.beginPath();
     Canvas.context.moveTo(Canvas.getX(arguments[0]), Canvas.getY(arguments[1]));
-    for(var i = 2; i < arguments.length + 1; i += 2) {
-      Canvas.context.lineTo(Canvas.getX(arguments[i]), Canvas.getY(arguments[i + 2]));
+    for(var i = 2; i < arguments.length; i += 2) {
+      Canvas.context.lineTo(Canvas.getX(arguments[i]), Canvas.getY(arguments[i + 1]));
     }
     Canvas.context.closePath();
     
