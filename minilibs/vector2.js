@@ -84,8 +84,8 @@ if(!Vector2) {
     this.y += toAdd.y;
   };
   Vector2.prototype.sub = function(toSubtract) {
-    this.x += toSubtract.x;
-    this.y += toSubtract.y;
+    this.x -= toSubtract.x;
+    this.y -= toSubtract.y;
   };
   Vector2.prototype.mult = function(scaleFactor) {
     this.x *= scaleFactor;
