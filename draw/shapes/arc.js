@@ -1,5 +1,10 @@
 if(!Draw.arc) {
   Draw.arc = function(x, y, w, h, start, stop) {
+    if(!Canvas.configured) {
+      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+      return;
+    }
+    
     Canvas.context.beginPath();
     
     var realX = x,
