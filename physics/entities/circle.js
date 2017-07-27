@@ -115,7 +115,7 @@ Physics.Circle.prototype.collideStaticDynamic = function(that) {
         ),
       this.rad + that.rad)
     ),
-    0.15
+    Physics.circleAdjustment
   );
   that.vel = Vector2.mult(
     Vector2.sub(
@@ -136,7 +136,7 @@ Physics.Circle.prototype.collideDynamicStatic = function(that) {
         ),
       this.rad + that.rad)
     ),
-    0.15
+    Physics.circleAdjustment
   );
   this.vel = Vector2.mult(
     Vector2.sub(
@@ -151,8 +151,8 @@ Physics.Circle.prototype.collideDynamicDynamic = function(that) {
   var mid = Vector2.mid(this.pos, that.pos);
   var difference = Vector2.norm(Vector2.sub(this.pos, that.pos));
   
-  this.pos = Vector2.lerp(this.pos, Vector2.add(mid, Vector2.mult(difference, this.rad + that.rad)), 0.15);
-  that.pos = Vector2.lerp(that.pos, Vector2.sub(mid, Vector2.mult(difference, this.rad + that.rad)), 0.15);
+  this.pos = Vector2.lerp(this.pos, Vector2.add(mid, Vector2.mult(difference, this.rad + that.rad)), Physics.circleAdjustment);
+  that.pos = Vector2.lerp(that.pos, Vector2.sub(mid, Vector2.mult(difference, this.rad + that.rad)), Physics.circleAdjustment);
   
   var thisComponentOld = Vector2.dot(this.vel, difference);
   var thatComponentOld = Vector2.dot(that.vel, difference);
