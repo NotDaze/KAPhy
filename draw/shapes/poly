@@ -1,0 +1,18 @@
+if(!Draw.poly) {
+  Draw.poly = function() {
+    if(!Canvas.configured) {
+      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+      return;
+    }
+    
+    Canvas.context.beginPath();
+    Canvas.context.moveTo(arguments[0], arguments[1]);
+    for(var i = 2; i < arguments.length; i += 2) {
+      Canvas.context.lineTo(arguments[i], arguments[i + 2]);
+    }
+    Canvas.context.closePath();
+    
+    Canvas.context.fill();
+    Canvas.context.stroke();
+  };
+}
