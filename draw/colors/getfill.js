@@ -6,6 +6,7 @@ if(!Draw.getFill) {
     }
     
     var fillStyle = Canvas.context.fillStyle.split(", ");
+    console.log(fillStyle);
     fillStyle[0] = fillStyle[0].split("");
     fillStyle[0].splice(0, 5);
     fillStyle[0] = parseFloat(fillStyle[0].join(""));
