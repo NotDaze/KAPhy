@@ -1,9 +1,11 @@
-const CENTER = "CENTER";
-const CORNER = "CORNER";
-const RADIUS = "RADIUS";
-const CORNERS = "CORNERS";
-
-const Draw = {
-  currentRectMode: "CORNER",
-  currentEllipseMode: "CENTER",
-};
+if(!Draw) {
+  var CENTER = "CENTER";
+  var CORNER = "CORNER";
+  var RADIUS = "RADIUS";
+  var CORNERS = "CORNERS";
+  
+  var Draw = {
+    currentRectMode: "CORNER",
+    currentEllipseMode: "CENTER",
+  };
+}
