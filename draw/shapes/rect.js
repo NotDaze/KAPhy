@@ -1,5 +1,10 @@
 if (!Draw.rect) {
   Draw.rect = function(x, y, w, h, tl, tr, br, bl) {
+    if(!Canvas.configured) {
+      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+      return;
+    }
+    
     var realX = x,
       realY = y,
       realW = w,
