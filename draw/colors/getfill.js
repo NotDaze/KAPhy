@@ -1,5 +1,10 @@
 if(!Draw.getFill) {
   Draw.getFill = function() {
+    if(!Canvas.configured) {
+      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+      return;
+    }
+    
     var fillStyle = Canvas.context.fillStyle.split(", ");
     fillStyle[0] = fillStyle[0].split("");
     fillStyle[0].splice(0, 4);
