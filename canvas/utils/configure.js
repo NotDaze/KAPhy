@@ -12,5 +12,6 @@ if (!Canvas.configure) {
     Canvas.relHeight = canvasElement.height;
 
     Canvas.context = canvasElement.getContext("2d");
+    Canvas.context.fillStyle = "rgba(255, 255, 255, 1.0)";
   };
 }
