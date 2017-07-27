@@ -16,6 +16,6 @@ var Equation = {
     return (b.x - a.x)/(a.y - b.y);
   },
   TB: function(m, a) {
-    return a.y - (m * a.x);
+    return a.y - m * a.x;
   }
 };
