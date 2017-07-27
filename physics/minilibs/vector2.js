@@ -67,12 +67,13 @@ Vector2.array = function(toConvert) {
 Vector2.reflect = function(toReflect, linePoint1, linePoint2) {
   return Vector2.sub(toReflect,
     Vector2.mult(
-      Vector2.sub(toReflect, [(Equation.B(linePoint1, linePoint2) - Equation.TB(Equation.PM(linePoint1, linePoint2), toReflect)) /
+      Vector2.sub(toReflect, new Vector2(
+        (Equation.B(linePoint1, linePoint2) - Equation.TB(Equation.PM(linePoint1, linePoint2), toReflect)) /
         (Equation.PM(linePoint1, linePoint2) - Equation.M(linePoint1, linePoint2)), Equation.M(linePoint1, linePoint2) *
         (Equation.B(linePoint1, linePoint2) - Equation.TB(Equation.PM(linePoint1, linePoint2), toReflect)) /
         (Equation.PM(linePoint1, linePoint2) - Equation.M(linePoint1, linePoint2)) + Equation.B(linePoint1, linePoint2)
-      ]),
-      2)
+      )),
+    2)
   );
 };
 
@@ -132,11 +133,19 @@ Vector2.prototype.array = function() {
 Vector2.prototype.reflect = function(linePoint1, linePoint2) {
   return Vector2.sub(this,
     Vector2.mult(
-      Vector2.sub(this, [(Equation.B(linePoint1, linePoint2) - Equation.TB(Equation.PM(linePoint1, linePoint2), this)) /
+      Vector2.sub(this, new Vector2(
+        (Equation.B(linePoint1, linePoint2) - Equation.TB(Equation.PM(linePoint1, linePoint2), this)) /
         (Equation.PM(linePoint1, linePoint2) - Equation.M(linePoint1, linePoint2)), Equation.M(linePoint1, linePoint2) *
         (Equation.B(linePoint1, linePoint2) - Equation.TB(Equation.PM(linePoint1, linePoint2), this)) /
         (Equation.PM(linePoint1, linePoint2) - Equation.M(linePoint1, linePoint2)) + Equation.B(linePoint1, linePoint2)
-      ]),
-      2)
+      )),
+    2)
   );
+};
+Vector2.prototype.get = function() {
+  return new Vector2(this.x, this.y);
+};
+Vector2.prototype.set = function(x, y) {
+  this.x = x;
+  this.y = y;
 };
