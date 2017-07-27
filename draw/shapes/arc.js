@@ -1,0 +1,11 @@
+Draw.rect = function(x, y, w, h, start, stop) {
+  Canvas.context.beginPath();
+  switch(Draw.currentRectMode) {
+    case CENTER: Canvas.ellipse(x, y, w, h, 0, start, stop) break;
+    case CORNER: Canvas.ellipse(x - w/2, y - h/2, w, h, 0, start, stop) break;
+    case CORNERS: Canvas.ellipse(x - w/2, y - h/2, w, h, 0, start, stop) break;
+    case RADIUS: Canvas.ellipse(x, y, w * 2, h * 2, 0, start, stop) break;
+  }
+  Canvas.context.fill();
+  Canvas.context.stroke();
+};
