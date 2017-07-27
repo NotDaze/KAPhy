@@ -5,7 +5,7 @@
   
   It finds simple things like slopes and y-intercepts
 */
-var Equation = {
+const Equation = {
   M: function(a, b) {
     return (a.y - b.y)/(a.x - b.x);
   },
