@@ -9,4 +9,6 @@ Canvas.configure = function(canvasElement) {
   
   Canvas.relWidth  = canvasElement.width;
   Canvas.relHeight = canvasElement.height;
+  
+  Canvas.context = canvasElement.getContext("2d");
 };
