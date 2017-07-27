@@ -1,4 +1,4 @@
-var Canvas = {
+const Canvas = {
   configured: false,
   relWidth: null,
   relHeight: null,
