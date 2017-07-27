@@ -9,5 +9,5 @@ const Physics = {
   
   sleepThreshold: 2,//Maximum velocity at which any circle can be "asleep".
   
-  circleAdjustment: 0.3
+  circleAdjustment: 0.3//The intensity of the position adjustment when circles collide
 };
