@@ -6,6 +6,7 @@ if(!Draw) {
   
   var Draw = {
     currentRectMode: "CORNER",
+    currentImageMode: "CORNER",
     currentEllipseMode: "CENTER",
   };
 }
