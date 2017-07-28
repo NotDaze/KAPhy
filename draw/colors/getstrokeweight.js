@@ -1,5 +1,5 @@
 if(!Draw.getStrokeWeight) {
-  /* Draw.getStrokeWeight
+  /** Draw.getStrokeWeight
     Draw.getStrokeWeight returns the canvas context's current stroke weight (or line width)
     
     @author  TemporalFuzz
@@ -12,6 +12,6 @@ if(!Draw.getStrokeWeight) {
       return;
     }
     
-    return Canvas.context.lineWidth;
+    return Canvas.context.lineWidth || 0;
   };
 }
