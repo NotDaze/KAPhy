@@ -10,6 +10,11 @@ if(!Draw.loadImage) {
       return;
     }
     
+    if(!Images[imageName]) {
+      console.warn("KAPhy Warning - Tried to load invalid imaves.");
+      return;
+    }
+    
     var imageToLoad = new Image();
     imageToLoad.onload = onLoad;
     imageToLoad.src = Images[imageName];
