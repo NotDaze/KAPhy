@@ -29,8 +29,8 @@ if(!Draw.ellipse) {
     if(Canvas.configured) {
       realX = Canvas.getX(realX);
       realY = Canvas.getY(realY);
-      realW = Canvas.getX(realW);
-      realH = Canvas.getY(realH);
+      realW = Canvas.getX(realW/2);
+      realH = Canvas.getY(realH/2);
     }
     
     Canvas.context.ellipse(realX, realY, realW, realH, 0, 0, 6.3);
