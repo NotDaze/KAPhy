@@ -2,7 +2,7 @@ if(!Draw.fill) {
   /** Draw.fill
     Draw.fill sets the canvas context's fill color.
     
-    @import  https://cdn.rawgit.com/TemporalFuzz/KAPhy/edit/master/draw/colors/fill.js
+    @link    https://cdn.rawgit.com/TemporalFuzz/KAPhy/edit/master/draw/colors/fill.js
     @author  TemporalFuzz
     @version 1.0
   */
