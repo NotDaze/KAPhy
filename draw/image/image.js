@@ -9,6 +9,7 @@ if(!Draw.image) {
       case 3: Canvas.context.drawImage(image, x, y); break;
       case 5: Canvas.context.drawImage(image, x, y, w, h); break;
       case 9: Canvas.context.drawImage(image, x, y, w, h, sx, sy, sw, sh); break;
+      default: console.warn("KAPhy Warning - Draw.image() takes 3, 5, or 9 arguments."); break;
     }
   };
 }
