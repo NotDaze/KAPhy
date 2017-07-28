@@ -11,7 +11,7 @@ if(!Draw.loadImage) {
     }
     
     if(!Images[imageName]) {
-      console.warn("KAPhy Warning - Tried to load invalid imaves.");
+      console.warn("KAPhy Warning - Tried to load invalid image.");
       return;
     }
     
