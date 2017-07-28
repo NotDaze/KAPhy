@@ -34,6 +34,7 @@ if(!Draw.arc) {
     }
     
     Canvas.context.ellipse(realX, realY, realW, realH, 0, start, stop);
+    Canvas.context.moveTo(realX, realY);
     Canvas.context.fill();
     Canvas.context.stroke();
   };
