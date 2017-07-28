@@ -1,4 +1,18 @@
 if(!Draw.getFill) {
+  /** Draw.getFill
+    Draw.getFill finds the canvas context's current fill color.
+    It then returns it in RGBA format.
+    
+    @link    https://cdn.rawgit.com/TemporalFuzz/KAPhy/edit/master/draw/colors/getfill.js
+    @author  TemporalFuzz
+    @version 1.0
+    @returns Object {
+      r: Fill red value
+      g: Fill green value
+      b: Fill blue value
+      a: Fill alpha value
+    }
+  */
   Draw.getFill = function() {
     if(!Canvas.configured) {
       console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
