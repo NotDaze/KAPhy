@@ -5,6 +5,11 @@ if(!Draw.loadImage) {
       return;
     }
     
+    if(arguments.length === 0 || arguments.length > 2) {
+      console.warn("KAPhy Warning - Draw.loadImage() takes 1 or 2 arguments.");
+      return;
+    }
+    
     var imageToLoad = new Image();
     imageToLoad.onload = onLoad;
     imageToLoad.src = Images[imageName];
