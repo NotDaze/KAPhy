@@ -1,7 +1,7 @@
 if (!Canvas.configure) {
   Canvas.configure = function(canvasElement) {
     if (this.configured) {
-      console.warn("KAPhy warning - Attempted to reconfigure canvas.");
+      console.warn("KAPhy Warning - Please deconfigure canvas before reconfiguring it.");
       return;
     }
 
