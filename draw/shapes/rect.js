@@ -5,6 +5,8 @@ if (!Draw.rect) {
       return;
     }
     
+    Canvas.context.beginPath();
+    
     var realX = x,
       realY = y,
       realW = w,
