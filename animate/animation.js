@@ -13,7 +13,7 @@ if(!Animate.Animation) {
     this.startValue = config.start || 0;
     this.finalValue = config.final || 1;
     
-    this.transition = config.transition.toLowerCase() || "linear";
+    this.transition = config.transition || "linear";
   };
   Animate.Animation.getValue = function() {
     return this.startValue + (this.finalValue - this.startValue) * 
