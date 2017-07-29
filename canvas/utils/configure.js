@@ -1,4 +1,4 @@
-if (!Canvas.configure) {
+if (!Canvas.configure || KAPhy.version !== KAPhy.current) {
   Canvas.configure = function(canvasElement) {
     if (this.configured) {
       console.warn("KAPhy Warning - Please deconfigure canvas before reconfiguring it.");
