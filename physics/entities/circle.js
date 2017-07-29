@@ -1,4 +1,4 @@
-if (!Physics.Circle) {
+if (!Physics.Circle || KAPhy.version !== KAPhy.current) {
   Physics.Circle = function(config) {
     /** Position and Velocity **/
     this.pos = config.pos || new Vector2(config.x, config.y);
