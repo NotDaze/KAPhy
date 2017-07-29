@@ -8,5 +8,7 @@ if(!Draw) {
     currentRectMode: "CORNER",
     currentImageMode: "CORNER",
     currentEllipseMode: "CENTER",
+    
+    shapeOpen: false,
   };
 }
