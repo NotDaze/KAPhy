@@ -5,6 +5,11 @@ if(!Draw.fill) {
       return;
     }
     
+    if(Draw.shapeOn) {
+      console.warn("KAPhy Warning - You can't use color commands when in shape mode.");
+      return;
+    }
+    
     if(arguments.length >= 1) {
       if(typeof arguments[0] === "object") {
         Canvas.context.fillStyle = "rgba(" + arguments[0].r + ", " + arguments[0].g + ", " + arguments[0].b + ", " + (arguments[0].a/255) + ")";
