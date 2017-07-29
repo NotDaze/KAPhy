@@ -1,4 +1,4 @@
-if (!Physics.Constraint) {
+if (!Physics.Constraint || KAPhy.version !== KAPhy.current) {
   Physics.Constraint = function(config) {
     this.one = config.one;
     this.two = config.two;
