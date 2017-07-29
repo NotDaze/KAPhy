@@ -1,4 +1,4 @@
-if(!Draw.quadVertex) {
+if(!Draw.quadVertex || KAPhy.version !== KAPhy.current) {
   Draw.quadVertex = function(cx, cy, x, y) {
     if(!Canvas.configured) {
       console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
