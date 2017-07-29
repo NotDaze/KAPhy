@@ -10,6 +10,6 @@ if(!Draw.quadVertex) {
       return;
     }
     
-    Canvas.context.quadraticCurveTo(cx, cy, x, y);
+    Canvas.context.quadraticCurveTo(Canvas.getX(cx), Canvas.getY(cy), Canvas.getX(x), Canvas.getY(y));
   };
 }
