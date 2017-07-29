@@ -36,7 +36,7 @@ if (!Physics.Circle || KAPhy.version !== KAPhy.current) {
       return;
     }
 
-    if (vectMag(this.vel) > Physics.sleepThreshold || this.buoyancyForce > 0) {
+    if (this.vel.magSq() > Physics.sleepThreshold * Physics.sleepThreshold || this.buoyancyForce > 0) {
       this.asleep = false;
     }
     this.pos.add(this.vel) //Add velocity to position
