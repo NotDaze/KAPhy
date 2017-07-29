@@ -12,6 +12,6 @@ if (!Physics.Line || KAPhy.version !== KAPhy.current) {
   Physics.Line.prototype.draw = function() {
     Draw.stroke(0);
     Draw.strokeWeight(this.rad * 2);
-    Draw.line(this.one.pos.x, this.one.pos.y, this.two.pos.x, this.two.pos.y);
+    Draw.line(this.one.x, this.one.y, this.two.x, this.two.y);
   };
 }
