@@ -5,6 +5,10 @@ if(!Draw.strokeWeight) {
       return;
     }
     
+    if(arguments.length > 1) {
+      console.warn("KAPhy Warning - Draw.strokeWeight() takes 0 or 1 arguments.");
+    }
+    
     Canvas.context.lineWidth = strokeWeight || 0;
   };
 }
