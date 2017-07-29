@@ -1,4 +1,4 @@
-if(!Animate.Animation) {
+if(!Animate.Animation || KAPhy.version !== KAPhy.current) {
   Animate.Animation = function(config) {
     if(config.transition) {
       if(!Animate.transitions[config.transition]) {
