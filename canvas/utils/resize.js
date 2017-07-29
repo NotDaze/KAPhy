@@ -1,5 +1,11 @@
 if (!Canvas.resize) {
   Canvas.resize = function(relWidth, relHeight) {
+    var envWidth = window.innerWidth;
+    var envHeight = window.innerHeight;
+    
+    if(!envWidth  || envWidth  === 0) envWidth  = document.documentElement.clientWidth;
+    if(!envHeight || envHeight === 0) envHeight = document.documentElement.clientHeight;
+    
     if (!Canvas.configured) {
       console.warn("KAPhy warning - Attempted to resize when not configured");
       return;
@@ -8,12 +14,12 @@ if (!Canvas.resize) {
     Canvas.relWidth = relWidth;
     Canvas.relHeight = relHeight;
 
-    if (window.innerWidth / window.innerHeight < relWidth / relHeight) {
-      Canvas.element.width = window.innerWidth;
-      Canvas.element.height = relHeight / relWidth * window.innerWidth;
+    if (envWidth / envHeight < relWidth / relHeight) {
+      Canvas.element.width = envWidth;
+      Canvas.element.height = relHeight / relWidth * envWidth;
     } else {
-      Canvas.element.width = relWidth / relHeight * window.innerHeight;
-      Canvas.element.height = window.innerHeight;
+      Canvas.element.width = relWidth / relHeight * envHeight;
+      Canvas.element.height = envHeight;
     }
   };
 }
