@@ -33,9 +33,9 @@ if(!Draw.image) {
     realH = Canvas.getY(realH);
     
     switch(arguments.length) {
-      case 3: Canvas.context.drawImage(image, x, y); break;
-      case 5: Canvas.context.drawImage(image, x, y, w, h); break;
-      case 9: Canvas.context.drawImage(image, x, y, w, h, sx, sy, sw, sh); break;
+      case 3: Canvas.context.drawImage(image, realX, realY); break;
+      case 5: Canvas.context.drawImage(image, realX, realY, realW, realH); break;
+      case 9: Canvas.context.drawImage(image, realX, realY, realW, realH, sx, sy, sw, sh); break;
       default: console.warn("KAPhy Warning - Draw.image() takes 3, 5, or 9 arguments."); break;
     }
   };
