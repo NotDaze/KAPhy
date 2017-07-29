@@ -41,7 +41,7 @@ if (!Physics.Circle || KAPhy.version !== KAPhy.current) {
     }
     this.pos.add(this.vel) //Add velocity to position
 
-    this.vel.y += Physics.gravityForce - this.buoyancyForce; //Gravity
+    this.vel.y += Canvas.getY(Physics.gravityForce - this.buoyancyForce); //Gravity
 
     this.vel.mult(this.waterDrag * (this.asleep ? Physics.asleepAirResistance : Physics.airResistance)); //Air resistance
 
@@ -51,10 +51,7 @@ if (!Physics.Circle || KAPhy.version !== KAPhy.current) {
     this.manageAdjustments();
   };
   Physics.Circle.prototype.draw = function() {
-    ctx.beginPath();
-    ctx.fillStyle = "#FF0000";
-    ctx.ellipse(this.pos.x, this.pos.y, this.rad, this.rad, 0, 0, 6.279);
-    ctx.fill();
+    Draw.ellipse(this.pos.x, this.pos.y, this.rad * 2, this.rad * 2);
   };
   Physics.Circle.prototype.display = function() {
     if (this.move) {
