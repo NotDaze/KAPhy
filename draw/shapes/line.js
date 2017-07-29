@@ -5,6 +5,11 @@ if(!Draw.line) {
       return;
     }
     
+    if(Draw.shapeOn) {
+      console.warn("KAPhy Warning - You can't use other shape commands when in shape mode.");
+      return;
+    }
+    
     Canvas.context.beginPath();
     Canvas.context.moveTo(x1, y1);
     Canvas.context.lineTo(x2, y2);
