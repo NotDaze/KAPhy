@@ -1,11 +1,4 @@
 if(!Draw.fill) {
-  /** Draw.fill
-    Draw.fill sets the canvas context's fill color.
-    
-    @link    https://cdn.rawgit.com/TemporalFuzz/KAPhy/edit/master/draw/colors/fill.js
-    @author  TemporalFuzz
-    @version 1.0
-  */
   Draw.fill = function() {
     if(!Canvas.configured) {
       console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
@@ -15,6 +8,7 @@ if(!Draw.fill) {
     /*
       If no arguments: Defaults to white
       If one argument: Gray of brightness depending on argument
+      If one argument: Sets color based on the object's r, g, b, and a properties.
       If two arguments: First argument is brightness; second is alpha
       If three arguments: Typical RGB
       If four arguments: Typical RGBA
