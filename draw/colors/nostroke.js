@@ -1,4 +1,4 @@
-if(!Draw.noStroke) {
+if(!Draw.noStroke || KAPhy.version !== KAPhy.current) {
   Draw.noStroke = function() {
     if(!Canvas.configured) {
       console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
