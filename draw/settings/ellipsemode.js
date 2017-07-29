@@ -1,4 +1,4 @@
-if(!Draw.ellipseMode) {
+if(!Draw.ellipseMode || KAPhy.version !== KAPhy.current) {
   Draw.ellipseMode = function(newMode) {
     if(!Canvas.configured) {
       console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
