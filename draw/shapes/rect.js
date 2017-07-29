@@ -5,6 +5,11 @@ if (!Draw.rect) {
       return;
     }
     
+    if(Draw.shapeOn) {
+      console.warn("KAPhy Warning - You can't use other shape commands when in shape mode.");
+      return;
+    }
+    
     if(arguments.length > 8 || arguments.length < 4) {
       console.warn("KAPhy Warning - Draw.rect() takes 4 - 8 arguments.");
       return;
