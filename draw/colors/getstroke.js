@@ -1,18 +1,4 @@
-if(!Draw.getStroke) {
-  /** Draw.getStroke
-    Draw.getStroke finds the canvas context's current stroke color.
-    It then returns it in RGBA format.
-    
-    @link    https://cdn.rawgit.com/TemporalFuzz/KAPhy/edit/master/draw/colors/getstroke.js
-    @author  TemporalFuzz
-    @version 1.0
-    @returns Object {
-      r: Stroke red value
-      g: Stroke green value
-      b: Stroke blue value
-      a: Stroke alpha value
-    }
-  */
+if(!Draw.getStroke || KAPhy.version !== KAPhy.current) {
   Draw.getStroke = function() {
     if(!Canvas.configured) {
       console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
