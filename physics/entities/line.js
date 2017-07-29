@@ -10,11 +10,8 @@ if (!Physics.Line || KAPhy.version !== KAPhy.current) {
     this.rad = config.rad || 4;
   };
   Physics.Line.prototype.draw = function() {
-    ctx.beginPath();
-    ctx.strokeStyle = "#000";
-    ctx.lineWidth = this.rad * 2;
-    ctx.moveTo(this.one.x, this.one.y);
-    ctx.lineTo(this.two.x, this.two.y);
-    ctx.stroke();
+    Draw.stroke(0);
+    Draw.strokeWeight(this.rad * 2);
+    Draw.line(this.one.pos.x, this.one.pos.y, this.two.pos.x, this.two.pos.y);
   };
 }
