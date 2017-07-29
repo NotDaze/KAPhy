@@ -15,7 +15,7 @@ if(!circleCollidingLine) {
   var circleCollidingLine = function(a, b, c, r) {
     if(Vector2.magSq(Vector2.sub(a, c)) <= r * r || Vector2.magSq(Vector2.sub(b, c)) <= r * r) { return true; }
     var m = (Equation.B(a, b) - Equation.TB(Equation.PM(a, b), c))/(Equation.PM(a, b) - Equation.M(a, b));
-    return m > Math.min(a.x, b.x) && m < Math.max(a.x, b.x) && Vector2d.magSq(Vector2.sub(new Vector2(m, Equation.M(a, b) * m + Equation.B(a, b)), c)) < r * r;
+    return m > Math.min(a.x, b.x) && m < Math.max(a.x, b.x) && Vector2.magSq(Vector2.sub(new Vector2(m, Equation.M(a, b) * m + Equation.B(a, b)), c)) < r * r;
   };
 }
 
