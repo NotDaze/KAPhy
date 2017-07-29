@@ -1,4 +1,4 @@
-if(!Physics.Rod) {
+if(!Physics.Rod || KAPhy.version !== KAPhy.current) {
   Physics.Rod = function(config) {
     Physics.Constraint.call(this, config);
   };
