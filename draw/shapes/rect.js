@@ -32,12 +32,10 @@ if (!Draw.rect) {
         break;
     }
     
-    if(Canvas.configured) {
-      realX = Canvas.getX(realX);
-      realY = Canvas.getY(realY);
-      realW = Canvas.getX(realW);
-      realH = Canvas.getY(realH);
-    }
+    realX = Canvas.getX(realX);
+    realY = Canvas.getY(realY);
+    realW = Canvas.getX(realW);
+    realH = Canvas.getY(realH);
     
     tl = tl || 0;
     tr = tr || tl;
