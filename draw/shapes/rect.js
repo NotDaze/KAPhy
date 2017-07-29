@@ -5,6 +5,11 @@ if (!Draw.rect) {
       return;
     }
     
+    if(arguments.length > 8 || arguments.length < 4) {
+      console.warn("KAPhy Warning - Draw.rect() takes 4 - 8 arguments.");
+      return;
+    }
+    
     var realX = x,
       realY = y,
       realW = w,
@@ -35,9 +40,9 @@ if (!Draw.rect) {
     }
     
     tl = tl || 0;
-    tr = tr || 0;
-    br = br || 0;
-    bl = bl || 0;
+    tr = tr || tl;
+    br = br || tl;
+    bl = bl || tl;
 
     Canvas.context.beginPath();
 
