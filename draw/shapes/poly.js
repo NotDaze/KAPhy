@@ -5,6 +5,11 @@ if(!Draw.poly) {
       return;
     }
     
+    if(Draw.shapeOn) {
+      console.warn("KAPhy Warning - You can't use other shape commands when in shape mode.");
+      return;
+    }
+    
     Canvas.context.beginPath();
     Canvas.context.moveTo(Canvas.getX(arguments[0]), Canvas.getY(arguments[1]));
     for(var i = 2; i < arguments.length; i += 2) {
