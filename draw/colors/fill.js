@@ -21,6 +21,7 @@ if(!Draw.fill) {
     */
     
     switch(arguments.length) {
+        //could this be changed to make 1-4 look more better? Maybe using {}?
       case 0: Canvas.context.fillStyle = "#FFFFFF"; break;
       case 1: Canvas.context.fillStyle = "rgb(" + arguments[0] + ", " + arguments[0] + ", " + arguments[0] + ")"; break;
       case 2: Canvas.context.fillStyle = "rgba(" + arguments[0] + ", " + arguments[0] + ", " + arguments[0] + ", " + (arguments[1]/255) + ")"; break;
