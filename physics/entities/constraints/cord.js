@@ -1,4 +1,4 @@
-if (!Physics.Cord) {
+if (!Physics.Cord || KAPhy.version !== KAPhy.current) {
   Physics.Cord = function(config) {
     Physics.Constraint.call(this, config);
   };
