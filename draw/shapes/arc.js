@@ -5,6 +5,11 @@ if(!Draw.arc) {
       return;
     }
     
+    if(Draw.shapeOn) {
+      console.warn("KAPhy Warning - You can't use other shape commands when in shape mode.");
+      return;
+    }
+    
     Canvas.context.beginPath();
     
     var realX = x,
