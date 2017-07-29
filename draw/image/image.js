@@ -1,4 +1,4 @@
-if(!Draw.image) {
+if(!Draw.image || KAPhy.version !== KAPhy.current) {
   Draw.image = function(image, x, y, w, h, sx, sy, sw, sh) {
     if(!Canvas.configured) {
       console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
