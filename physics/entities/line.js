@@ -1,4 +1,4 @@
-if (!Physics.Line) {
+if (!Physics.Line || KAPhy.version !== KAPhy.current) {
   Physics.Line = function(config) {
     this.one = config.one || new Vector2();
     this.two = config.two || new Vector2();
