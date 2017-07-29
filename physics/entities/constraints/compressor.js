@@ -1,4 +1,4 @@
-if (!Physics.Compressor) {
+if (!Physics.Compressor || KAPhy.version !== KAPhy.current) {
   Physics.Compressor = function(config) {
     Physics.Constraint.call(this, config);
   };
