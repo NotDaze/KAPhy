@@ -5,8 +5,6 @@ if (!Draw.rect) {
       return;
     }
     
-    Canvas.context.beginPath();
-    
     var realX = x,
       realY = y,
       realW = w,
@@ -35,13 +33,11 @@ if (!Draw.rect) {
       realW = Canvas.getX(realW);
       realH = Canvas.getY(realH);
     }
-
-    tl = tl || 0;
-    tr = tr || tl;
-    br = br || tl;
-    bl = bl || tl;
     
-    tl = Canvas.getX(tl);
+    tl = tl || 0;
+    tr = tr || 0;
+    br = br || 0;
+    bl = bl || 0;
 
     Canvas.context.beginPath();
 
