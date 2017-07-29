@@ -1,4 +1,4 @@
-if(!Draw.arc) {
+if(!Draw.arc || KAPhy.version !== KAPhy.current) {
   Draw.arc = function(x, y, w, h, start, stop) {
     if(!Canvas.configured) {
       console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
