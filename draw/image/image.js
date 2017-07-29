@@ -5,6 +5,33 @@ if(!Draw.image) {
       return;
     }
     
+    var realX = x,
+        realY = y,
+        realW = w,
+        realH = h;
+    
+    switch (Draw.currentImageMode) {
+      case CORNERS:
+        realW = w - x;
+        realH = h - y;
+        break;
+      case RADIUS:
+        realX = x + w / 2;
+        realY = y + h / 2;
+        realW = w * 2;
+        realH = h * 2;
+        break;
+      case CENTER:
+        realX = x - w / 2;
+        realY = y - h / 2;
+        break;
+    }
+    
+    realX = Canvas.getX(realX);
+    realY = Canvas.getY(realY);
+    realW = Canvas.getX(realW);
+    realH = Canvas.getY(realH);
+    
     switch(arguments.length) {
       case 3: Canvas.context.drawImage(image, x, y); break;
       case 5: Canvas.context.drawImage(image, x, y, w, h); break;
