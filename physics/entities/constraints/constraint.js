@@ -40,12 +40,9 @@ if (!Physics.Constraint || KAPhy.version !== KAPhy.current) {
     }
   };
   Physics.Constraint.prototype.draw = function() {
-    ctx.beginPath();
-    ctx.strokeStyle = "#000";
-    ctx.lineWidth = 5;
-    ctx.moveTo(this.one.pos.x, this.one.pos.y);
-    ctx.lineTo(this.two.pos.x, this.two.pos.y);
-    ctx.stroke();
+    Draw.strokeWeight(3);
+    Draw.stroke(0, 0, 0);
+    Draw.line(this.one.pos.x, this.one.pos.y, this.two.pos.x, this.two.pos.y);
   };
   Physics.Constraint.prototype.display = function() {
     if (this.update) {
