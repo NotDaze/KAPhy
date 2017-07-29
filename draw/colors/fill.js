@@ -20,6 +20,13 @@ if(!Draw.fill) {
       If four arguments: Typical RGBA
     */
     
+    if(arguments.length >= 1) {
+      if(typeof arguments[0] === "object") {
+        Canvas.context.fillStyle = "rgba(" + arguments[0].r + ", " + arguments[0].g + ", " + arguments[0].b + ", " + (arguments[0].a/255) + ")";
+        return;
+      }
+    }
+    
     switch(arguments.length) {
       case 0: Canvas.context.fillStyle = "#FFFFFF"; break;
       case 1: Canvas.context.fillStyle = "rgb(" + arguments[0] + ", " + arguments[0] + ", " + arguments[0] + ")"; break;
