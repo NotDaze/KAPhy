@@ -5,6 +5,11 @@ if(!Draw.image) {
       return;
     }
     
+    if(Draw.shapeOn) {
+      console.warn("KAPhy Warning - You can't use other drawing commands when in shape mode.");
+      return;
+    }
+    
     var realX = x,
         realY = y,
         realW = w,
