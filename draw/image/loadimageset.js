@@ -1,4 +1,4 @@
-if(!Draw.loadImageSet) {
+if(!Draw.loadImageSet || KAPhy.version !== KAPhy.current) {
   Draw.loadImageSet = function(imagesToLoad, onFinish) {
     if(arguments.length === 0) {
       console.warn("KAPhy Warning - Draw.loadImageSet() takes at least 1 argument.");
