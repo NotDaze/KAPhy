@@ -1,4 +1,4 @@
-if (!Canvas.resize) {
+if (!Canvas.resize || KAPhy.version !== KAPhy.current) {
   Canvas.resize = function(relWidth, relHeight) {
     var envWidth = window.innerWidth;
     var envHeight = window.innerHeight;
