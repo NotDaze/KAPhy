@@ -1,4 +1,4 @@
-if(!Physics.Spring) {
+if(!Physics.Spring || KAPhy.version !== KAPhy.current) {
   Physics.Spring = function(config) {
     Physics.Constraint.call(this, config);
   };
