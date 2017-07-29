@@ -1,4 +1,4 @@
-if (!Physics.Extender) {
+if (!Physics.Extender || KAPhy.version !== KAPhy.current) {
   Physics.Extender = function(config) {
     Physics.Constraint.call(this, config);
   };
