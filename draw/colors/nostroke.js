@@ -5,6 +5,11 @@ if(!Draw.noStroke) {
       return;
     }
     
+    if(Draw.shapeOn) {
+      console.warn("KAPhy Warning - You can't use color commands when in shape mode.");
+      return;
+    }
+    
     if(arguments.length !== 0) {
       console.warn("KAPhy Warning - Draw.noStroke() takes 0 arguments.");
     }
