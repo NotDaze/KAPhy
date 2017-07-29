@@ -1,4 +1,4 @@
-if (!Physics.Bungee) {
+if (!Physics.Bungee || KAPhy.version !== KAPhy.current) {
   Physics.Bungee = function(config) {
     Physics.Constraint.call(this, config);
   };
