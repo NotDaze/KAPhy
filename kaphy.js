@@ -10,8 +10,11 @@ var KAPhy = {
     }
   },
   finishUpdate: function() {
-    KAPhy.version = KAPhy.current;
-    console.log("KAPhy update finished!");
+    if(KAPhy.version !== KAPhy.current) {
+      KAPhy.version = KAPhy.current;
+      console.log("KAPhy update finished!");
+    }
+    console.log("KAPhy loaded!");
   }
 };
 KAPhy.install();
