@@ -1,4 +1,4 @@
-if(!Draw.stroke) {
+if(!Draw.stroke || KAPhy.version !== KAPhy.current) {
   Draw.stroke = function(r, g, b, a) {
     if(!Canvas.configured) {
       console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
