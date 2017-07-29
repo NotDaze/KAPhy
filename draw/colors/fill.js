@@ -1,4 +1,4 @@
-if(!Draw.fill) {
+if(!Draw.fill || KAPhy.version !== KAPhy.current) {
   Draw.fill = function() {
     if(!Canvas.configured) {
       console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
