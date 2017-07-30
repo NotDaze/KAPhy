@@ -99,7 +99,7 @@ if (!Physics.Circle || KAPhy.version !== KAPhy.current) {
       this.pos = Vector2.sub(n, Vector2.mult(Vector2.normalize(Vector2.sub(n, this.pos)), this.rad + line.rad));
     } else {
       var n = intersection(this.pos, Vector2.reflect(this.pos, line.one, line.two), line.one, line.two);
-      this.vel = Vector2.mult(Vector2.sub(n, Vector2.reflect(Vector2.sub(n, this.vel), n, Vector2.add(n, [1, PM(line.one, line.two)]))), -line.bcf * this.bcf);
+      this.vel = Vector2.mult(Vector2.sub(n, Vector2.reflect(Vector2.sub(n, this.vel), n, Vector2.add(n, new Vector2(1, PM(line.one, line.two))))), -line.bcf * this.bcf);
       this.pos = Vector2.add(n, Vector2.mult(Vector2.norm(new Vector2(1, PM(line.one, line.two))), (this.rad + line.rad) * (this.pos.y > n.y ? -1 : 1) * (line.one.x > line.two.x ? -1 : 1) * (line.one.y > line.two.y ? -1 : 1)));
     }
     this.trySleep();
