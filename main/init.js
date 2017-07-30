@@ -1,5 +1,4 @@
 var filesToLoad = [
-  "kaphy.js",
   "canvas/init.js",
   "canvas/utils/configure.js",
   "canvas/utils/deconfigure.js",
@@ -49,7 +48,11 @@ var filesToLoad = [
   "kaphyfinish.js"
 ];
 
-function load(onFinish) {
+function load(onFinish, override) {
+  if(KAPhy.version !== KAPhy.current) {
+    
+  }
+  
   function importJS(filename, onLoad) {
     var newScript = document.createElement("script");
 
