@@ -45,12 +45,12 @@ var filesToLoad = [
   "physics/entities/constraints/extender.js",
   "physics/entities/constraints/rod.js",
   "physics/entities/constraints/spring.js",
-  "kaphyfinish.js"
 ];
 
 function load(onFinish, override) {
-  if(KAPhy.version !== KAPhy.current) {
-    
+  if(KAPhy.version === KAPhy.current) {
+    if(onFinish) onFinish();
+    return;
   }
   
   function importJS(filename, onLoad) {
@@ -69,6 +69,7 @@ function load(onFinish, override) {
     i++;
     console.log((i + 1) + " files loaded!");
     if (i >= filesToLoad.length) {
+      KAPhy.finishUpdate();
       if (onFinish) onFinish();
       return;
     }
