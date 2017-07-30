@@ -17,6 +17,7 @@ var filesToLoad = [
   "draw/settings/imagemode.js",
   "draw/settings/textfont.js",
   "draw/shapes/arc.js",
+  "draw/shapes/background.js",
   "draw/shapes/beginshape.js",
   "draw/shapes/beziervertex.js",
   "draw/shapes/ellipse.js",
