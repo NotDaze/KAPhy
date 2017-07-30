@@ -33,6 +33,7 @@ var filesToLoad = [
   "draw/image/loadimageset.js",
   "draw/image/image.js",
   "draw/image/get.js",
+  "physics/init.js",
   "physics/minilibs/equation.js",
   "physics/minilibs/vector2.js",
   "physics/minilibs/collisiondetection.js",
