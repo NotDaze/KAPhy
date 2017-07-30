@@ -90,7 +90,7 @@ if (!Physics.Circle || KAPhy.version !== KAPhy.current) {
       return;
     }
 
-    if (!circleCollidingLine(this.pos, line.one, line.two, this.rad + line.rad)) {
+    if (!circleCollidingLine(line.one, line.two, this.pos, this.rad + line.rad)) {
       return;
     }
     if (!intersecting(this.pos, Vector2.reflect(this.pos, line.one, line.two), line.one, line.two)) {
