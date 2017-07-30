@@ -49,24 +49,27 @@ var filesToLoad = [
   "kaphyfinish.js"
 ];
 
-function importJS(filename, onLoad) {
-  var newScript = document.createElement("script");
-  
-  newScript.type = "text/javascript";
-  newScript.src = "https://rawgit.com/TemporalFuzz/KAPhy/master/" + filename;
-  
-  newScript.onload = onLoad;
-  
-  document.head.appendChild(newScript);
-}
+function load(onFinish) {
+  function importJS(filename, onLoad) {
+    var newScript = document.createElement("script");
 
-var i = 0;
-var loadNext = function() {
-  i++;
-  console.log((i + 1) + " files loaded!");
-  if(i >= filesToLoad.length) {
-    return;
+    newScript.type = "text/javascript";
+    newScript.src = "https://rawgit.com/TemporalFuzz/KAPhy/master/" + filename;
+
+    newScript.onload = onLoad;
+
+    document.head.appendChild(newScript);
   }
+
+  var i = 0;
+  function loadNext() {
+    i++;
+    console.log((i + 1) + " files loaded!");
+    if (i >= filesToLoad.length) {
+      if (onFinish) onFinish();
+      return;
+    }
+    importJS(filesToLoad[i], loadNext);
+  };
   importJS(filesToLoad[i], loadNext);
-};
-importJS(filesToLoad[i], loadNext);
+}
