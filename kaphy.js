@@ -1,4 +1,4 @@
-if (!KAPhy)
+if (!KAPhy) {
   var KAPhy = {
     current: "0.0.4.11",
     install: function() {
