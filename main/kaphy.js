@@ -1,6 +1,6 @@
 if (!KAPhy) {
   var KAPhy = {
-    current: "0.0.4.11",
+    current: "0.0.5",
     install: function() {
       if (!KAPhy.installed) {
         KAPhy.installed = true;
