@@ -75,7 +75,7 @@ if (!Physics.Circle || KAPhy.version !== KAPhy.current) {
     for (var i = 0; i < this.posAdjustments.length; i++) {
       adjustmentAvg.add(this.posAdjustments[i]);
     }
-    this.pos = Vector2.lerp(this.pos, Vector2d.div(adjustmentAvg, this.posAdjustments.length), Physics.constraintAdjustment);
+    this.pos = Vector2.lerp(this.pos, Vector2.div(adjustmentAvg, this.posAdjustments.length), Physics.constraintAdjustment);
 
     this.posAdjustments = [];
   };
@@ -96,7 +96,7 @@ if (!Physics.Circle || KAPhy.version !== KAPhy.current) {
     if (!intersecting(this.pos, Vector2.reflect(this.pos, line.one, line.two), line.one, line.two)) {
       var n = (Vector2.dist(this.pos, line.one) < Vector2.dist(this.pos, line.two)) ? line.one : line.two;
       this.vel = Vector2.mult(Vector2.sub(Vector2.reflect(Vector2.sub(this.pos, this.vel), n, this.pos), this.pos), line.bcf * this.bcf);
-      this.pos = Vector2.sub(n, Vector2d.mult(Vector2.normalize(Vector2.sub(n, this.pos)), this.rad + line.rad));
+      this.pos = Vector2.sub(n, Vector2.mult(Vector2.normalize(Vector2.sub(n, this.pos)), this.rad + line.rad));
     } else {
       var n = intersection(this.pos, Vector2.reflect(this.pos, line.one, line.two), line.one, line.two);
       this.vel = Vector2.mult(Vector2.sub(n, Vector2.reflect(Vector2.sub(n, this.vel), n, Vector2.add(n, [1, PM(line.one, line.two)]))), -line.bcf * this.bcf);
