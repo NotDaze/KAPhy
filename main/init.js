@@ -29,6 +29,7 @@ var filesToLoad = [
   "draw/settings/gettextsize.js",
   "draw/transform/popmatrix.js",
   "draw/transform/pushmatrix.js",
+  "draw/transform/resetmatrix.js",
   "draw/transform/rotate.js",
   "draw/transform/scale.js",
   "draw/transform/skew.js",
