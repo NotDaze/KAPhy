@@ -5,6 +5,11 @@ if(!Draw.popMatrix) {
       return;
     }
     
+    if(Draw.shapeOn) {
+      console.warn("KAPhy Warning - You cannot use transformation commands in shape mode.");
+      return;
+    }
+    
     var oldFillStyle    = Canvas.context.fillStyle;
     var oldStrokeStyle  = Canvas.context.strokeStyle;
     var oldLineWidth    = Canvas.context.lineWidth;
