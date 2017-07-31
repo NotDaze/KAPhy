@@ -6,7 +6,7 @@ if(!Draw.strokeJoin) {
     }
     
     if(newJoin === MITER || newJoin === ROUND || newJoin === BEVEL) {
-      Canvas.context.lineCap = newJoin;
+      Canvas.context.lineJoin = newJoin;
     }
   };
 }
