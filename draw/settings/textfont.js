@@ -1,4 +1,4 @@
-if(!Draw.textFont || KAPhy.version !== KAPhy.current) {
+if(!Draw.textFont) {
   Draw.textFont = function(font, size, variant) {
     if(!Canvas.configured) {
       console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
