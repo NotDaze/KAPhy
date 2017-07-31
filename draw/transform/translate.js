@@ -15,6 +15,6 @@ if(!Draw.translate) {
       return;
     }
     
-    Canvas.context.transform(1, 0, 0, 1, x, y || 0);
+    Canvas.context.translate(x, y || 0);
   };
 }
