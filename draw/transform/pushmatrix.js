@@ -5,6 +5,11 @@ if(!Draw.pushMatrix) {
       return;
     }
     
+    if(Draw.shapeOn) {
+      console.warn("KAPhy Warning - You cannot use transformation commands in shape mode.");
+      return;
+    }
+    
     Canvas.context.save();
   };
 }
