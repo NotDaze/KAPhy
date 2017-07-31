@@ -114,7 +114,7 @@ function load(onComplete, override) {
       if (onComplete) onComplete();
       return;
     }
-    importSetJS(filesSets[i], loadNext);
+    importSetJS(fileSets[i], loadNext);
   };
-  importSetJS(filesSets[i], loadNext);
+  importSetJS(fileSets[i], loadNext);
 }
