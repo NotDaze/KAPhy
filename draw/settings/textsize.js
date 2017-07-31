@@ -1,4 +1,4 @@
-if(!Draw.textSize || KAPhy.version !== KAPhy.current) {
+if(!Draw.textSize) {
   Draw.textSize = function(size) {
     if(!Canvas.configured) {
       console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
