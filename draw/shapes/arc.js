@@ -1,4 +1,4 @@
-if(!Draw.arc || KAPhy.version !== KAPhy.current) {
+if(!Draw.arc) {
   Draw.arc = function(x, y, w, h, start, stop) {
     if(!Canvas.configured) {
       console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
@@ -9,8 +9,6 @@ if(!Draw.arc || KAPhy.version !== KAPhy.current) {
       console.warn("KAPhy Warning - You can't use other shape commands when in shape mode.");
       return;
     }
-    
-    Canvas.context.beginPath();
     
     var realX = x,
         realY = y,
@@ -38,9 +36,13 @@ if(!Draw.arc || KAPhy.version !== KAPhy.current) {
       realH = Canvas.getY(realH);
     }
     
+    Canvas.context.beginPath();
     Canvas.context.ellipse(realX, realY, realW, realH, 0, start, stop);
-    Canvas.context.moveTo(realX, realY);
+    Canvas.context.lineTo(realX, realY);
     Canvas.context.fill();
+    
+    Canvas.context.beginPath();
+    Canvas.context.ellipse(realX, realY, realW, realH, 0, start, stop);
     Canvas.context.stroke();
   };
 }
