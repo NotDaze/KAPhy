@@ -1,5 +1,5 @@
 if(!Draw.textFont || KAPhy.version !== KAPhy.current) {
-  Draw.textFont = function(font, size) {
+  Draw.textFont = function(font, size, variant) {
     if(!Canvas.configured) {
       console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
       return;
@@ -7,11 +7,6 @@ if(!Draw.textFont || KAPhy.version !== KAPhy.current) {
     
     var currentFont = Canvas.context.font.split(" ");
     
-    if(!size) {
-      Canvas.context.font = parseInt(currentFont[0]) + "px " + font;
-      return;
-    }
-  
-    Canvas.context.font = Math.round(size) + "px " + font;
+    Canvas.context.font = (variant ? (variant + " ") : "") + Math.round(size ? size : currentFont[0]) + "px " + font;
   };
 }
