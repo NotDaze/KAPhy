@@ -27,6 +27,7 @@ var filesToLoad = [
   "draw/shapes/poly.js",
   "draw/shapes/quadvertex.js",
   "draw/shapes/rect.js",
+  "draw/shapes/text.js",
   "draw/shapes/vertex.js",
   "draw/image/images.js",
   "draw/image/loadimage.js",
