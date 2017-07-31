@@ -7,6 +7,6 @@ if(!Draw.textFont) {
     
     var currentFont = Canvas.context.font.split(" ");
     
-    Canvas.context.font = (variant ? (variant + " ") : "") + Math.round(size ? size : currentFont[currentFont.length - 2]) + "px " + font;
+    Canvas.context.font = (variant ? (variant + " ") : "") + Math.round(size ? size : parseInt(currentFont[currentFont.length - 2])) + "px " + font;
   };
 }
