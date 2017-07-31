@@ -8,6 +8,7 @@ var filesToLoad = [
   "draw/colors/fill.js",
   "draw/colors/stroke.js",
   "draw/colors/nostroke.js",
+  "draw/colors/nofill.js",
   "draw/colors/getfill.js",
   "draw/colors/getstroke.js",
   "draw/settings/strokeweight.js",
