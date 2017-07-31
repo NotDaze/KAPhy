@@ -7,8 +7,8 @@ if(!Draw || KAPhy.version !== KAPhy.current) {
   var MITER = "miter";
   var ROUND = "round";
   var BEVEL = "bevel";
-  var BUTT = "butt";
-  var SQUARE = "square";
+  var SQUARE = "butt";
+  var PROJECT = "square";
   
   var Draw = {
     currentRectMode: "CORNER",
