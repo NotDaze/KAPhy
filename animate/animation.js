@@ -19,4 +19,7 @@ if(!Animate.Animation) {
     return this.startValue + (this.finalValue - this.startValue) * 
            Animate.transitions[this.transition](new Date().getTime() - this.startTime)/this.duration);
   };
+  Animate.Animation.expired = function() {
+    return new Date().getTime() - this.startTime <= this.duration;
+  };
 }
