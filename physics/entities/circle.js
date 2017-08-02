@@ -94,7 +94,7 @@ if (!Physics.Circle) {
       return;
     }
     if (!intersecting(this.pos, Vector2.reflect(this.pos, line.one, line.two), line.one, line.two)) {
-      var n = (Vector2.dist(this.pos, line.one) < Vector2.dist(this.pos, line.two)) ? line.one : line.two;
+      var n = (Vector2.magSq(Vector2.sub(this.pos, line.one)) < Vector2.magSq(Vector2.sub(this.pos, line.two))) ? line.one : line.two;
       this.vel = Vector2.mult(Vector2.sub(Vector2.reflect(Vector2.sub(this.pos, this.vel), n, this.pos), this.pos), line.bcf * this.bcf);
       this.pos = Vector2.sub(n, Vector2.mult(Vector2.normalize(Vector2.sub(n, this.pos)), this.rad + line.rad));
     } else {
