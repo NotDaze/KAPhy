@@ -162,7 +162,7 @@ if (!Vector2) {
     Returns the squared magnitude of this vector
   */
   Vector2.prototype.magSq = function() {
-    return this.x * this.x + this.y + this.y;
+    return this.x * this.x + this.y * this.y;
   };
   /*
     Normalizes the vector
