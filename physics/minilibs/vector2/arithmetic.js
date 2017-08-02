@@ -30,3 +30,27 @@ if(!Vector2.div) {
     );
   };
 }
+if(!Vector2.prototype.add) {
+  Vector2.prototype.add = function(toAdd) {
+    this.x += toAdd.x;
+    this.y += toAdd.y;
+  };
+}
+if(!Vector2.prototype.sub) {
+  Vector2.prototype.sub = function(toSubtract) {
+    this.x -= toSubtract.x;
+    this.y -= toSubtract.y;
+  };
+}
+if(!Vector2.prototype.mult) {
+  Vector2.prototype.mult = function(scaleFactor) {
+    this.x *= scaleFactor;
+    this.y *= scaleFactor;
+  };
+}
+if(!Vector2.prototype.div) {
+  Vector2.prototype.div = function(inverseFactor) {
+    this.x /= inverseFactor;
+    this.y /= inverseFactor;
+  };
+}
