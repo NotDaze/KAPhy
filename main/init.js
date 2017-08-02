@@ -39,6 +39,8 @@ var fileSets = [
     "draw/settings/gettextalign.js",
     "draw/settings/gettextbaseline.js",
     "draw/settings/textalign.js",
+    "draw/settings/loadfont.js",
+    "draw/settings/loadfontset.js",
     "draw/transform/popmatrix.js",
     "draw/transform/pushmatrix.js",
     "draw/transform/resetmatrix.js",
