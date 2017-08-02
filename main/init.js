@@ -1,7 +1,7 @@
 if (!KAPhy) {
   var KAPhy = {
     loaded: false,
-    current: "0.0.5",
+    current: "0.0.5.1",
     install: function() {
       if (KAPhy.version !== KAPhy.current) {
         console.log("KAPhy is updating, installing, or rebuilding.");
