@@ -1,5 +1,6 @@
 if (!KAPhy) {
   var KAPhy = {
+    loaded: false,
     current: "0.0.5",
     install: function() {
       if (KAPhy.version !== KAPhy.current) {
@@ -29,7 +30,7 @@ var fileSets = [
     "canvas/utils/resize.js",
     "canvas/utils/coordinates.js",
     "physics/minilibs/equation.js",
-    "physics/minilibs/vector2.js",
+    "physics/minilibs/vector2/init.js",
     "physics/minilibs/collisiondetection.js",
   ],
   [
@@ -88,6 +89,12 @@ var fileSets = [
     "physics/entities/circle.js",
     "physics/entities/line.js",
     "physics/entities/constraints/constraint.js",
+    "physics/minilibs/vector2/arithmetic.js",
+    "physics/minilibs/vector2/convert.js",
+    "physics/minilibs/vector2/direction.js",
+    "physics/minilibs/vector2/dot.js",
+    "physics/minilibs/vector2/magnitude.js",
+    "physics/minilibs/vector2/reflect.js",
   ],
   [
     "physics/entities/constraints/bungee.js",
@@ -101,9 +108,12 @@ var fileSets = [
 
 function load(onComplete, override) {
   if(KAPhy.version === KAPhy.current) {
-    if(onComplete) onComplete();
+    if(onComplete && !KAPhy.loaded) onComplete();
     return;
   }
+  
+  if(!KAPhy.loaded) return;
+  KAPhy.loaded = true;
   
   function importJS(filename, onLoad) {
     var newScript = document.createElement("script");
