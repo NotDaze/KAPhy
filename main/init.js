@@ -86,9 +86,6 @@ var fileSets = [
     "draw/image/loadimageset.js",
     "draw/image/image.js",
     "draw/image/get.js",
-    "physics/entities/circle.js",
-    "physics/entities/line.js",
-    "physics/entities/constraints/constraint.js",
     "physics/minilibs/vector2/arithmetic.js",
     "physics/minilibs/vector2/convert.js",
     "physics/minilibs/vector2/direction.js",
@@ -96,6 +93,11 @@ var fileSets = [
     "physics/minilibs/vector2/magnitude.js",
     "physics/minilibs/vector2/reflect.js",
   ],
+  [
+    "physics/entities/circle.js",
+    "physics/entities/line.js",
+    "physics/entities/constraints/constraint.js",",
+  ]
   [
     "physics/entities/constraints/bungee.js",
     "physics/entities/constraints/compressor.js",
