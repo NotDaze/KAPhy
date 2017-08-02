@@ -97,7 +97,7 @@ var fileSets = [
     "physics/entities/circle.js",
     "physics/entities/line.js",
     "physics/entities/constraints/constraint.js",",
-  ]
+  ],
   [
     "physics/entities/constraints/bungee.js",
     "physics/entities/constraints/compressor.js",
