@@ -23,6 +23,22 @@ if(!Vector2.distSq) {
     return Vector2.sub(lineEnd1, lineEnd2).magSq();
   };
 }
+if(!Vector2.mid) {
+   Vector2.mid = function(lineEnd1, lineEnd2) {
+    return new Vector2(
+      lineEnd1.x / 2 + lineEnd2.x / 2,
+      lineEnd1.y / 2 + lineEnd2.y / 2
+    );
+  };
+}
+if(!Vector2.lerp) {
+   Vector2.lerp = function(lerpFrom, lerpTo, lerpStage) {
+    return new Vector2(
+      lerpFrom.x + (lerpTo.x - lerpFrom.x) * lerpStage,
+      lerpFrom.y + (lerpTo.y - lerpFrom.y) * lerpStage
+    );
+  };
+}
 if(!Vector2.prototype.mag) { 
   Vector2.prototype.mag = function() {
     return Math.sqrt(this.x * this.x + this.y * this.y);
@@ -46,5 +62,21 @@ if(!Vector2.prototype.dist) {
 if(!Vector2.prototype.distSq) {
   Vector2.prototype.distSq = function(lineEnd) {
     return Vector2.sub(this, lineEnd).magSq();
+  };
+}
+if(!Vector2.prototype.mid) {
+   Vector2.prototype.mid = function(lineEnd) {
+    return new Vector2(
+      this.x / 2 + lineEnd.x / 2,
+      this.y / 2 + lineEnd.y / 2
+    );
+  };
+}
+if(!Vector2.prototype.lerp) {
+   Vector2.prototype.lerp = function(lerpWith, lerpStage) {
+    return new Vector2(
+      this.x + (lerpWith.x - this.x) * lerpStage,
+      this.y + (lerpWith.y - this.y) * lerpStage
+    );
   };
 }
