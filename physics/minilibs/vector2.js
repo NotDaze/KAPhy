@@ -68,8 +68,8 @@ if (!Vector2) {
     var cosAngle = Math.cos(rotateBy);
     var sinAngle = Math.sin(rotateBy);
     return new Vector2(
-      toRotate.x * cosAngle - y * sinAngle,
-      toRotate.x * sinAngle + y * cosAngle
+      toRotate.x * cosAngle - toRotate.y * sinAngle,
+      toRotate.x * sinAngle + toRotate.y * cosAngle
     );
   };
   /*
@@ -177,8 +177,8 @@ if (!Vector2) {
     var cosAngle = Math.cos(rotateBy);
     var sinAngle = Math.sin(rotateBy);
     var oldX = this.x;
-    this.x = oldX * cosAngle - y * sinAngle;
-    this.y = oldX * sinAngle + y * cosAngle;
+    this.x = oldX * cosAngle - this.y * sinAngle;
+    this.y = oldX * sinAngle + this.y * cosAngle;
   };
   /*
     Returns the midpoint of this and another vector
