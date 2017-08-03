@@ -20,7 +20,7 @@ if(!Vector2.dist) {
 }
 if(!Vector2.distSq) {
   Vector2.distSq = function(lineEnd1, lineEnd2) {
-    return Vector2.sub(lineEnd1, lineEnd2).magSq();
+    return Vector2.magSq(Vector2.sub(lineEnd1, lineEnd2));
   };
 }
 if(!Vector2.mid) {

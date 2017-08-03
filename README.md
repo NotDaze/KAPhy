@@ -4,5 +4,3 @@ It provides a lot of functionality. It does the seemingly impossible and utilize
 Despite this, it works pretty smoothly with the tests I've done so far.
 
 Status: In Progress, Somewhat Usable
-
-I'll update this README once I get something more complete.

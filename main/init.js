@@ -1,7 +1,7 @@
 if (!KAPhy) {
   var KAPhy = {
     loaded: false,
-    current: "0.0.5.1",
+    current: "0.0.5.2",
     install: function() {
       if (KAPhy.version !== KAPhy.current) {
         console.log("KAPhy is updating, installing, or rebuilding.");
@@ -92,6 +92,7 @@ var fileSets = [
     "physics/minilibs/vector2/dot.js",
     "physics/minilibs/vector2/magnitude.js",
     "physics/minilibs/vector2/reflect.js",
+    "physics/minilibs/vector2/canvasmap.js"
   ],
   [
     "physics/entities/circle.js",
@@ -109,19 +110,21 @@ var fileSets = [
 ];
 
 function load(onComplete) {
+  if(KAPhy.loaded) { return; }
+  
   if(KAPhy.version === KAPhy.current) {
-    if(onComplete && !KAPhy.loaded) { onComplete(); }
+    if(onComplete) { onComplete(); }
+    KAPhy.loaded = true;
     return;
   }
   
-  if(KAPhy.loaded) { return; }
   KAPhy.loaded = true;
   
   function importJS(filename, onLoad) {
     var newScript = document.createElement("script");
 
     newScript.type = "text/javascript";
-    newScript.src = "https://rawgit.com/TemporalFuzz/KAPhy/master/" + filename;
+    newScript.src = "./" + filename;
 
     newScript.onload = onLoad;
 
@@ -134,8 +137,9 @@ function load(onComplete) {
     for(var i = 0; i < fileset.length; i++) {
       importJS(fileset[i], function() {
         filesLoaded++;
-        if(filesLoaded >= fileset.length - 1) {
-          if(onFinish) onFinish();
+        if(filesLoaded >= fileset.length) {
+          if(onFinish) { onFinish(); }
+          return;
         }
       });
     }
@@ -144,12 +148,13 @@ function load(onComplete) {
   var i = 0;
   function loadNext() {
     i++;
-    if (i >= fileSets.length) {
+    if (i >= fileSets.length - 1) {
       KAPhy.finishUpdate();
       if (onComplete) { onComplete(); }
       return;
+    } else {
+      importSetJS(fileSets[i], loadNext);
     }
-    importSetJS(fileSets[i], loadNext);
   };
   importSetJS(fileSets[i], loadNext);
 }

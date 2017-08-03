@@ -1,8 +1,11 @@
 if (!Physics.Circle) {
   Physics.Circle = function(config) {
     /** Position and Velocity **/
-    this.pos = config.pos || new Vector2(config.x, config.y);
-    this.vel = config.vel || new Vector2();
+    this.pos = config.pos || new Vector2(config.x || 0, config.y || 0);
+    this.vel = config.vel || new Vector2(config.vx || 0, config.vy || 0);
+    
+    this.pos = new Vector2(Canvas.getX(this.pos.x), Canvas.getY(this.pos.y));
+    this.vel = new Vector2(Canvas.getX(this.vel.x), Canvas.getY(this.vel.y));
 
     /** Bounciness **/
     this.bcf = config.bcf || 0.75;
@@ -51,7 +54,7 @@ if (!Physics.Circle) {
     this.manageAdjustments();
   };
   Physics.Circle.prototype.draw = function() {
-    Draw.ellipse(this.pos.x, this.pos.y, this.rad * 2, this.rad * 2);
+    Draw.ellipse(Canvas.xFromConverted(this.pos.x), Canvas.yFromConverted(this.pos.y), this.rad * 2, this.rad * 2);
   };
   Physics.Circle.prototype.display = function() {
     if (this.move) {
@@ -90,15 +93,15 @@ if (!Physics.Circle) {
       return;
     }
 
-    if (!circleCollidingLine(line.one, line.two, this.pos, this.rad + line.rad)) {
+    if (!Collision.circleCollidingLine(line.one, line.two, this.pos, this.rad + line.rad)) {
       return;
     }
-    if (!intersecting(this.pos, Vector2.reflect(this.pos, line.one, line.two), line.one, line.two)) {
-      var n = (Vector2.magSq(Vector2.sub(this.pos, line.one)) < Vector2.magSq(Vector2.sub(this.pos, line.two))) ? line.one : line.two;
+    if (!Collision.intersecting(this.pos, Vector2.reflect(this.pos, line.one, line.two), line.one, line.two)) {
+      var n = (Vector2.distSq(this.pos, line.one) < Vector2.distSq(this.pos, line.two)) ? line.one : line.two;
       this.vel = Vector2.mult(Vector2.sub(Vector2.reflect(Vector2.sub(this.pos, this.vel), n, this.pos), this.pos), line.bcf * this.bcf);
       this.pos = Vector2.sub(n, Vector2.mult(Vector2.normalize(Vector2.sub(n, this.pos)), this.rad + line.rad));
     } else {
-      var n = intersection(this.pos, Vector2.reflect(this.pos, line.one, line.two), line.one, line.two);
+      var n = Collision.intersection(this.pos, Vector2.reflect(this.pos, line.one, line.two), line.one, line.two);
       this.vel = Vector2.mult(Vector2.sub(n, Vector2.reflect(Vector2.sub(n, this.vel), n, Vector2.add(n, new Vector2(1, Equation.PM(line.one, line.two))))), -line.bcf * this.bcf);
       this.pos = Vector2.add(n, Vector2.mult(Vector2.normalize(new Vector2(1, Equation.PM(line.one, line.two))), (this.rad + line.rad) * (this.pos.y > n.y ? -1 : 1) * (line.one.x > line.two.x ? -1 : 1) * (line.one.y > line.two.y ? -1 : 1)));
     }
@@ -166,9 +169,11 @@ if (!Physics.Circle) {
     if (this.fixed && that.fixed) {
       return;
     }
-    if (Vector2.magSq(Vector2.sub(this.pos, that.pos)) > ((this.rad + that.rad) * (this.rad + that.rad))) {
+    console.log((this.rad + that.rad) * (this.rad + that.rad));
+    if (Vector2.distSq(this.pos, that.pos) > ((this.rad + that.rad) * (this.rad + that.rad))) {
       return;
     }
+    console.log("Close!");
     if (this.fixed) {
       this.collideStaticDynamic(that);
       return;
