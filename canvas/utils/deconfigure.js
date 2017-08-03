@@ -4,7 +4,12 @@ if (!Canvas.deconfigure || KAPhy.version !== KAPhy.current) {
       console.warn("KAPhy warning - Attempted to reconfigure canvas.");
       return;
     }
-
+    
+    Canvas.element.onmousemove = null;
+    Canvas.element.onmousedown = null;
+    Canvas.element.onmouseup = null;
+    Canvas.element.onmouseout = null;
+    Canvas.element.onmouseover = null;
     Canvas.element = null;
     Canvas.configured = false;
 
