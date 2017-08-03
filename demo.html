@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo</title>
+        <script type="text/javascript" src="./main/init.js"></script>
+    </head>
+    <body style="background-color: #AAA;margin:0px">
+        <canvas id="canvas" width="300" height="200" style="margin:auto;background-color:#FFF;display:block">You don't have canvas support! Try switching to a different browser.</canvas>
+    </body>
+    <script>
+    load(function() {
+        var canvasEl = document.getElementById("canvas");
+        Canvas.configure(canvasEl);
+        Canvas.resize(400, 400);
+        
+        var circ = new Physics.Circle({
+            pos: new Vector2(200, 0),
+        });
+        var line = new Physics.Line({
+            one: new Vector2(100, 200),
+            two: new Vector2(300, 300)
+        });
+        
+        draw = function() {
+            Draw.background(255);
+            Draw.fill(0);
+            circ.display();
+            line.draw();
+            circ.collideLine(line)
+            requestAnimationFrame(draw);
+        };
+        draw();
+    });
+    </script>
+</html>
