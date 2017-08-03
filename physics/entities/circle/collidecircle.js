@@ -43,6 +43,7 @@ if(!Physics.Circle.prototype.collideDynamicStatic) {
       this.bcf * that.bcf).canvasUnmap();
     this.pos = Vector2.add(this.pos, this.vel);
   };
+}
 if(!Physics.Circle.prototype.collideDynamicDynamic) {
   Physics.Circle.prototype.collideDynamicDynamic = function(that) {
     var mid = Vector2.mid(this.pos, that.pos);
