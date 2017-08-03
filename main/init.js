@@ -114,7 +114,7 @@ function load(onComplete, override) {
     return;
   }
   
-  if(!KAPhy.loaded) return;
+  if(KAPhy.loaded) return;
   KAPhy.loaded = true;
   
   function importJS(filename, onLoad) {
