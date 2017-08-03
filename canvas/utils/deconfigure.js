@@ -12,6 +12,13 @@ if (!Canvas.deconfigure || KAPhy.version !== KAPhy.current) {
     Canvas.element.onmouseover = null;
     Canvas.element = null;
     Canvas.configured = false;
+    
+    window.onkeydown = null;
+    window.onkeyup = null;
+    Canvas.lastKeyUp = null;
+    Canvas.lastKeyDown = null;
+    Canvas.keyIsPressed = null;
+    Canvas.keys = null;
 
     Canvas.relWidth = null;
     Canvas.relHeight = null;

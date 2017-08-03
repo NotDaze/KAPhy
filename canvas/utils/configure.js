@@ -21,6 +21,11 @@ if (!Canvas.configure || KAPhy.version !== KAPhy.current) {
     
     Canvas.mouseIsPressed = false;
     
+    Canvas.keys = {};
+    Canvas.keyIsPressed = false;
+    Canvas.lastKeyTriggered = null;
+    Canvas.lastKeyEvent = null;
+    
     Canvas.element.onmousemove = function(e) {
       var canvasBoundingRect = Canvas.element.getBoundingClientRect();
       Canvas.pmouseX = Canvas.mouseX;
@@ -51,6 +56,37 @@ if (!Canvas.configure || KAPhy.version !== KAPhy.current) {
     };
     Canvas.element.onmouseover = function() {
       if(Canvas.mouseOver) { Canvas.mouseOver(); }
+    };
+    
+    window.onkeydown = function(e) {
+      if(Canvas.keys[e.key.toLowerCase()]) { return; }
+      
+      Canvas.keys[e.key.toLowerCase()] = true;
+      
+      Canvas.keyIsPressed = true;
+      Canvas.lastKeyDown = e.key.toLowerCase();
+      
+      if(Canvas.keyPressed) { Canvas.keyPressed(); }
+    };
+    
+    window.onkeyup = function(e) {
+      if(!Canvas.keys[e.key.toLowerCase()]) { return; }
+      
+      Canvas.keys[e.key.toLowerCase()] = false;
+      
+      Canvas.lastKeyUp = e.key.toLowerCase();
+      
+      var scopeChanger = function() {
+        for(var i in Canvas.keys) {
+          if(Canvas.keys[i]) {
+            return;
+          }
+        }
+        Canvas.keyIsPressed = false;
+      }();
+      
+      if(Canvas.keyReleased) { Canvas.keyReleased(); }
+      if(Canvas.keyTyped) { Canvas.keyTyped(); }//These are exactly the same too, lol
     };
   };
 }
