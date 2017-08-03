@@ -108,13 +108,13 @@ var fileSets = [
   ]
 ];
 
-function load(onComplete, override) {
+function load(onComplete) {
   if(KAPhy.version === KAPhy.current) {
-    if(onComplete && !KAPhy.loaded) onComplete();
+    if(onComplete && !KAPhy.loaded) { onComplete(); }
     return;
   }
   
-  if(KAPhy.loaded) return;
+  if(KAPhy.loaded) { return; }
   KAPhy.loaded = true;
   
   function importJS(filename, onLoad) {
@@ -144,10 +144,9 @@ function load(onComplete, override) {
   var i = 0;
   function loadNext() {
     i++;
-    console.log(i + " packages loaded!");
     if (i >= fileSets.length) {
       KAPhy.finishUpdate();
-      if (onComplete) onComplete();
+      if (onComplete) { onComplete(); }
       return;
     }
     importSetJS(fileSets[i], loadNext);
