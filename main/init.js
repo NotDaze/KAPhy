@@ -95,7 +95,7 @@ var fileSets = [
     "physics/minilibs/vector2/canvasmap.js"
   ],
   [
-    "physics/entities/circle.js",
+    "physics/entities/circle/init.js",
     "physics/entities/line.js",
     "physics/entities/constraints/constraint.js",
   ],
@@ -106,6 +106,10 @@ var fileSets = [
     "physics/entities/constraints/extender.js",
     "physics/entities/constraints/rod.js",
     "physics/entities/constraints/spring.js",
+    "physics/entities/circle/core.js",
+    "physics/entities/circle/force.js",
+    "physics/entities/circle/collideline.js",
+    "physics/entities/circle/collidecircle.js",
   ]
 ];
 
@@ -124,7 +128,7 @@ function load(onComplete) {
     var newScript = document.createElement("script");
 
     newScript.type = "text/javascript";
-    newScript.src = "./" + filename;
+    newScript.src = "https://rawgit.com/TemporalFuzz/KAPhy/master/" + filename;
 
     newScript.onload = onLoad;
 
