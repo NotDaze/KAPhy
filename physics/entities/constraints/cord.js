@@ -1,11 +1,11 @@
-if (!Physics.Cord || KAPhy.version !== KAPhy.current) {
+if (!Physics.Cord) {
   Physics.Cord = function(config) {
     Physics.Constraint.call(this, config);
   };
   Physics.Cord.prototype = Object.create(Physics.Constraint.prototype);
   Physics.Cord.prototype.update = function() {
-    var distance = Vector2.dist(this.one.pos, this.two.pos);
-    if (distance > this.length) {
+    var distance = Vector2.distSq(this.one.pos.canvasMap(), this.two.pos.canvasMap());
+    if (distance > (this.length * this.length)) {
       this.springEffect();
       this.forceCompensate();
     }

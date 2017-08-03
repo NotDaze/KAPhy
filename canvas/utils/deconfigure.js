@@ -12,5 +12,9 @@ if (!Canvas.deconfigure || KAPhy.version !== KAPhy.current) {
     Canvas.relHeight = null;
 
     Canvas.context = null;
+    
+    Canvas.mouseX = null;
+    Canvas.mouseY = null;
+    Canvas.mouseIsPressed = null;
   };
 }

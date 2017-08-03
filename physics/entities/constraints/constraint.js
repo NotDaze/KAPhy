@@ -10,33 +10,33 @@ if (!Physics.Constraint || KAPhy.version !== KAPhy.current) {
     this.two.constraints.push(this);
   };
   Physics.Constraint.prototype.springEffect = function() {
-    var distance = Vector2.dist(this.one.pos, this.two.pos);
-    var difference = Vector2.mult(Vector2.normalize(Vector2.sub(this.one.pos, this.two.pos)), this.rigidity * (distance / this.length - 1));
+    var distance = Vector2.dist(this.one.pos.canvasMap(), this.two.pos.canvasMap());
+    var difference = Vector2.mult(Vector2.normalize(Vector2.sub(this.one.pos.canvasMap(), this.two.pos.canvasMap())), this.rigidity * (distance / this.length - 1));
 
-    this.one.applyForce(Vector2.mult(difference, -1));
-    this.two.applyForce(difference);
+    this.one.applyForce(Vector2.mult(difference, -1).canvasUnmap());
+    this.two.applyForce(difference.canvasUnmap());
   };
   Physics.Constraint.prototype.forceCompensate = function() {
-    var distance = Vector2.dist(this.one.pos, this.two.pos);
-    var difference = Vector2.mult(Vector2.normalize(Vector2.normalize(this.one.pos, this.two.pos)), this.length / 2);
-    var mid = Vector2.mid(this.one.pos, this.two.pos);
+    var distance = Vector2.dist(this.one.pos.canvasMap(), this.two.pos.canvasMap());
+    var difference = Vector2.mult(Vector2.normalize(Vector2.sub(this.one.pos.canvasMap(), this.two.pos.canvasMap())), this.length / 2);
+    var mid = Vector2.mid(this.one.pos.canvasMap(), this.two.pos.canvasMap());
 
     if (!this.one.fixed) {
-      this.one.posAdjustments.push(Vector2.add(mid, difference));
-      this.one.pos = Vector2.lerp(
-        this.one.pos,
+      this.one.posAdjustments.push(Vector2.add(mid, difference).canvasUnmap());
+      /*this.one.pos = Vector2.lerp(
+        this.one.pos.canvasMap(),
         Vector2.add(mid, difference),
-        Physics.constraintCompensationStrength
-      );
+        0.2
+      ).canvasUnmap();*/
     }
 
     if (!this.two.fixed) {
-      this.two.posAdjustments.push(Vector2.sub(mid, difference));
-      this.two.pos = Vector2.lerp(
-        this.two.pos,
+      this.two.posAdjustments.push(Vector2.sub(mid, difference).canvasUnmap());
+      /*this.two.pos = Vector2.lerp(
+        this.two.pos.canvasMap(),
         Vector2.sub(mid, difference),
-        Physics.constraintCompensationStrength
-      );
+        0.2
+      ).canvasUnmap();*/
     }
   };
   Physics.Constraint.prototype.draw = function() {

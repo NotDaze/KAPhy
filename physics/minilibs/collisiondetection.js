@@ -4,7 +4,7 @@ if(!Collision) {
 if(!Collision.intersection) {
   Collision.intersection = function(a, b, c, d) {
     var X = (Equation.B(c, d) - Equation.B(a, b))/(Equation.M(a, b) - Equation.M(c, d));
-    return [X, Equation.M(a, b) * X + Equation.B(a, b)];
+    return new Vector2(X, Equation.M(a, b) * X + Equation.B(a, b));
   };
 }
 if(!Collision.intersecting) {

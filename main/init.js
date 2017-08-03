@@ -148,7 +148,7 @@ function load(onComplete) {
   var i = 0;
   function loadNext() {
     i++;
-    if (i >= fileSets.length - 1) {
+    if (i >= fileSets.length) {
       KAPhy.finishUpdate();
       if (onComplete) { onComplete(); }
       return;
