@@ -45,7 +45,7 @@ if (!Canvas.configure || KAPhy.version !== KAPhy.current) {
       
       if(Canvas.mousePressed) { Canvas.mousePressed(); }
     };
-    Canvas.element.onmousedown = function() {
+    Canvas.element.onmouseup = function() {
       Canvas.mouseIsPressed = false;
       
       if(Canvas.mouseClicked) { Canvas.mouseClicked(); }

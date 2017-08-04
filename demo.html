@@ -61,10 +61,10 @@ I'm sure you want to know more. Go to https://github.com/TemporalFuzz/KAPhy for 
             
             lines.push(new Physics.Line({
                 one: new Vector2(0, 300),
-                two: new Vector2(250, 350),
+                two: new Vector2(240, 350),
             }));
             lines.push(new Physics.Line({
-                one: new Vector2(250, 350),
+                one: new Vector2(260, 350),
                 two: new Vector2(400, 300),
             }));
         };
@@ -77,6 +77,9 @@ I'm sure you want to know more. Go to https://github.com/TemporalFuzz/KAPhy for 
             }
             for(var i = 0; i < circles.length; i++)  {
                 circles[i].display();
+                if(Canvas.mouseIsPressed) {
+                  circles[i].moveTowards(new Vector2(Canvas.mouseX, Canvas.mouseY).canvasUnmap(), 6);
+                }
                 for(var j = 0; j < i; j++) {
                     circles[i].collideCircle(circles[j]);
                 }

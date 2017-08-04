@@ -23,20 +23,10 @@ if (!Physics.Constraint || KAPhy.version !== KAPhy.current) {
 
     if (!this.one.fixed) {
       this.one.posAdjustments.push(Vector2.add(mid, difference).canvasUnmap());
-      /*this.one.pos = Vector2.lerp(
-        this.one.pos.canvasMap(),
-        Vector2.add(mid, difference),
-        0.2
-      ).canvasUnmap();*/
     }
 
     if (!this.two.fixed) {
       this.two.posAdjustments.push(Vector2.sub(mid, difference).canvasUnmap());
-      /*this.two.pos = Vector2.lerp(
-        this.two.pos.canvasMap(),
-        Vector2.sub(mid, difference),
-        0.2
-      ).canvasUnmap();*/
     }
   };
   Physics.Constraint.prototype.draw = function() {

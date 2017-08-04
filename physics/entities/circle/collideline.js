@@ -15,7 +15,7 @@ if(!Physics.Circle.prototype.collideLine) {
     }
     if (!Collision.intersecting(pos, Vector2.reflect(pos, one, two), one, two)) {
       var n = (Vector2.distSq(pos, one) < Vector2.distSq(pos, two)) ? one : two;
-      this.vel = Vector2.mult(Vector2.sub(Vector2.reflect(Vector2.add(pos, vel), n, pos), pos), line.bcf * this.bcf).canvasUnmap();
+      this.vel = Vector2.mult(Vector2.sub(Vector2.reflect(Vector2.sub(pos, vel), n, pos), pos), line.bcf * this.bcf).canvasUnmap();
       this.pos = Vector2.sub(n, Vector2.mult(Vector2.normalize(Vector2.sub(n, pos)), this.rad + line.rad)).canvasUnmap();
     } else {
       var n = Collision.intersection(pos, Vector2.reflect(pos, one, two), one, two);
