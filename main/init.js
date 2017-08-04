@@ -128,7 +128,7 @@ function load(onComplete) {
     var newScript = document.createElement("script");
 
     newScript.type = "text/javascript";
-    newScript.src = "./" + filename;
+    newScript.src = "https://rawgit.com/TemporalFuzz/KAPhy/master/" + filename;
 
     newScript.onload = onLoad;
 
