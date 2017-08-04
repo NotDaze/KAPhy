@@ -11,6 +11,6 @@ if(!Animation.prototype.getValue) {
 }
 if(!Animation.prototype.isExpired) {
   Animation.prototype.isExpired = function() {
-    return ((new Date().getTime() - this.startTime) <= this.duration);
+    return ((new Date().getTime() - this.startTime) >= this.duration);
   };
 }
