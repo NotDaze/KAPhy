@@ -15,6 +15,6 @@ if(!Draw.translate) {
       return;
     }
     
-    Canvas.context.translate(x, y || 0);
+    Canvas.context.translate(Canvas.toPixels(x || 0), Canvas.toPixels(y || 0));
   };
 }
