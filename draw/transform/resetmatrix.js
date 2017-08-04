@@ -10,6 +10,6 @@ if(!Draw.resetMatrix) {
       return;
     }
     
-    Canvas.context.resetTransform();
+    Canvas.context.setTransform(1, 0, 0, 1, 0, 0);
   };
 }
