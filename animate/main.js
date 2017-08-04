@@ -1,7 +1,7 @@
 if(!Animation) {
   var Animation = function(config) {
     if(config.transition) {
-      if(!Animate.transitions[config.transition]) {
+      if(!Animation.transitions[config.transition]) {
         console.warn("KAPhy Warning - Invalid animation transition specified. Defaulted to linear.");
         config.transition = "linear";
       }
