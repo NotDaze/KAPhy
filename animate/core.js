@@ -1,13 +1,11 @@
 if(!Animation.prototype.getValue) {
   Animation.prototype.getValue = function() {
-    var stage = Animation.transitions[this.transition]((new Date().getTime() - this.startTime)/this.duration));
+    var stage = Animation.transitions[this.transition]((new Date().getTime() - this.startTime)/this.duration);
     
     if(stage < 0) { return this.startValue; }
     if(stage > 1) { return this.finalValue; }
     
-    var val = (this.startValue + (this.finalValue - this.startValue) * stage;
-    
-    return val;
+    return (this.startValue + (this.finalValue - this.startValue) * stage);
   };
 }
 if(!Animation.prototype.isExpired) {
