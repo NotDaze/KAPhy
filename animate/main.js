@@ -17,8 +17,8 @@ if(!Animation) {
   };
   Animation.transitions = {
     linear: function(x) { return x; },
-    easeOutSine: function(x) { return Math.sin(x * Math.PI/2); },
     easeInSine: function(x) { return -Math.sin((x + 1) * Math.PI/2) + 1; },
+    easeOutSine: function(x) { return Math.sin(x * Math.PI/2); },
     easeInOutSine: function(x) { return Math.sin((x - 0.5) * Math.PI)/2 + 0.5; },
     easeInQuad: function(x) { return x * x; },
     easeOutQuad: function(x) { return x * (2 - x); },
