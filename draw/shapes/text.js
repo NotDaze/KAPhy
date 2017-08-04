@@ -14,6 +14,6 @@ if(!Draw.text) {
       console.warn("KAPhy Warning - Draw.text() takes 1 - 3 arguments.");
     }
     
-    Canvas.context.fillText(content, x || 0, y || 0);
+    Canvas.context.fillText(content, Canvas.toPixels(x || 0), Canvas.toPixels(y || 0));
   };
 }
