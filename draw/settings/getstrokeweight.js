@@ -5,6 +5,6 @@ if(!Draw.getStrokeWeight || KAPhy.version !== KAPhy.current) {
       return;
     }
     
-    return Canvas.context.lineWidth || 0;
+    return Canvas.toCanvasUnits(Canvas.context.lineWidth || 0);
   };
 }
