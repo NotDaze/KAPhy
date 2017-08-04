@@ -7,6 +7,6 @@ if(!Draw.getTextFont) {
     
     var currentFont = Canvas.context.font.split(" ");
     
-    return currentFont[currentFont.length - 1];
+    return Canvas.toCanvasUnits(currentFont[currentFont.length - 1]);
   };
 }
