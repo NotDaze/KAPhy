@@ -13,7 +13,7 @@ if(!Physics.Circle.prototype.update) {
 
     this.vel.y += Canvas.toPixels(Physics.gravityForce - this.buoyancyForce); //Gravity
 
-    this.vel.mult(this.waterDrag * (this.asleep ? Physics.airResistanceSleeping : Physics.airResistance)); //Air resistance
+    this.vel.mult((this.asleep ? Physics.airResistanceSleeping : this.waterDrag * Physics.airResistance)); //Air resistance
 
     this.buoyancyForce = 0;
     this.waterDrag = 1;
@@ -53,7 +53,7 @@ if(!Physics.Circle.prototype.manageAdjustments) {
 if(!Physics.Circle.prototype.trySleep) {
   Physics.Circle.prototype.trySleep = function() {
     if (Vector2.magSq(this.vel) < Physics.sleepThreshold * Physics.sleepThreshold) {
-      //this.asleep = true;
+      this.asleep = true;
     }
   };
 }
