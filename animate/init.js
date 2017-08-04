@@ -1,4 +1,4 @@
-if(!Animate || KAPhy.version !== KAPhy.current) {
+if(!Animate) {
   var Animate = {
     transitions: {
       linear: function(x) { return x; },
