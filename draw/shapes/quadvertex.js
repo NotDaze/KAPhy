@@ -10,6 +10,6 @@ if(!Draw.quadVertex || KAPhy.version !== KAPhy.current) {
       return;
     }
     
-    Canvas.context.quadraticCurveTo(Canvas.getX(cx), Canvas.getY(cy), Canvas.getX(x), Canvas.getY(y));
+    Canvas.context.quadraticCurveTo(Canvas.toPixels(cx), Canvas.toPixels(cy), Canvas.toPixels(x), Canvas.toPixels(y));
   };
 }

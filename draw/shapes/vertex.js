@@ -10,6 +10,6 @@ if(!Draw.vertex) {
       return;
     }
     
-    Canvas.context.lineTo(Canvas.getX(x), Canvas.getY(y));
+    Canvas.context.lineTo(Canvas.toPixels(x), Canvas.toPixels(y));
   };
 }

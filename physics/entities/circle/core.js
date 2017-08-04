@@ -11,9 +11,9 @@ if(!Physics.Circle.prototype.update) {
     }
     this.pos.add(this.vel) //Add velocity to position
 
-    this.vel.y += Canvas.getY(Physics.gravityForce - this.buoyancyForce); //Gravity
+    this.vel.y += Canvas.toPixels(Physics.gravityForce - this.buoyancyForce); //Gravity
 
-    this.vel.mult(this.waterDrag * (this.asleep ? Physics.asleepAirResistance : Physics.airResistance)); //Air resistance
+    this.vel.mult(this.waterDrag * (this.asleep ? Physics.airResistanceSleeping : Physics.airResistance)); //Air resistance
 
     this.buoyancyForce = 0;
     this.waterDrag = 1;
@@ -23,7 +23,7 @@ if(!Physics.Circle.prototype.update) {
 }
 if(!Physics.Circle.prototype.draw) {
   Physics.Circle.prototype.draw = function() {
-    Draw.ellipse(Canvas.xFromConverted(this.pos.x), Canvas.yFromConverted(this.pos.y), this.rad * 2, this.rad * 2);
+    Draw.ellipse(Canvas.toCanvasUnits(this.pos.x), Canvas.toCanvasUnits(this.pos.y), this.rad * 2, this.rad * 2);
   };
 }
 if(!Physics.Circle.prototype.display) {
@@ -53,7 +53,7 @@ if(!Physics.Circle.prototype.manageAdjustments) {
 if(!Physics.Circle.prototype.trySleep) {
   Physics.Circle.prototype.trySleep = function() {
     if (Vector2.magSq(this.vel) < Physics.sleepThreshold * Physics.sleepThreshold) {
-      this.asleep = true;
+      //this.asleep = true;
     }
   };
 }

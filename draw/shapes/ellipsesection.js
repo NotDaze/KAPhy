@@ -32,10 +32,10 @@ if(!Draw.ellipseSection || KAPhy.version !== KAPhy.current) {
     }
     
     if(Canvas.configured) {
-      realX = Canvas.getX(realX);
-      realY = Canvas.getY(realY);
-      realW = Canvas.getX(realW);
-      realH = Canvas.getY(realH);
+      realX = Canvas.toPixels(realX);
+      realY = Canvas.toPixels(realY);
+      realW = Canvas.toPixels(realW);
+      realH = Canvas.toPixels(realH);
     }
     
     Canvas.context.ellipse(realX, realY, realW, realH, 0, start, stop);

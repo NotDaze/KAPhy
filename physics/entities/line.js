@@ -3,8 +3,8 @@ if (!Physics.Line || KAPhy.version !== KAPhy.current) {
     this.one = config.one || new Vector2();
     this.two = config.two || new Vector2();
     
-    this.one = new Vector2(Canvas.getX(this.one.x), Canvas.getY(this.one.y));
-    this.two = new Vector2(Canvas.getX(this.two.x), Canvas.getY(this.two.y));
+    this.one = new Vector2(Canvas.toPixels(this.one.x), Canvas.toPixels(this.one.y));
+    this.two = new Vector2(Canvas.toPixels(this.two.x), Canvas.toPixels(this.two.y));
 
     /** Bounce Coefficient **/
     this.bcf = config.bcf || 0.75;

@@ -1,35 +1,102 @@
 <!DOCTYPE html>
+<!--
+Reload for Bitter font - I don't know why this happens.
+
+I'll be updating the docs for this ASAP
+
+I'm sure you want to know more. Go to https://github.com/TemporalFuzz/KAPhy for more info!
+-->
 <html>
     <head>
-        <title>Demo</title>
+        <title></title>
         <script type="text/javascript" src="./main/init.js"></script>
     </head>
     <body style="background-color: #AAA;margin:0px">
-        <canvas id="canvas" width="300" height="200" style="margin:auto;background-color:#FFF;display:block">You don't have canvas support! Try switching to a different browser.</canvas>
+        <canvas id="canvas" style="margin:auto;background-color:#FFF;display:block">You don't have canvas support! Try switching to a different browser.</canvas>
     </body>
     <script>
-    load(function() {
-        var canvasEl = document.getElementById("canvas");
-        Canvas.configure(canvasEl);
-        Canvas.resize(400, 400);
+        var circles = [];
+        var lines = [];
+        var constraints = [];
         
-        var circ = new Physics.Circle({
-            pos: new Vector2(200, 0),
-        });
-        var line = new Physics.Line({
-            one: new Vector2(100, 200),
-            two: new Vector2(300, 300)
-        });
-        
-        draw = function() {
-            Draw.background(255);
-            Draw.fill(0);
-            circ.display();
-            line.draw();
-            circ.collideLine(line)
-            requestAnimationFrame(draw);
+        var begin = function() {
+            var canvasEl = document.getElementById("canvas");
+            Canvas.configure(canvasEl);
+            Canvas.resize(400, 400);
+            
+            circles.push(new Physics.Circle({
+                pos: new Vector2(200, 0),
+                vel: new Vector2(0, 0),
+                rad: 20,
+                mass: 2
+            }));
+            circles.push(new Physics.Circle({
+                pos: new Vector2(150, 60),
+                vel: new Vector2(0, 0),
+                rad: 15,
+                mass: 1
+            }));
+            circles.push(new Physics.Circle({
+                pos: new Vector2(250, 60),
+                vel: new Vector2(0, 0),
+                rad: 15,
+                mass: 1
+            }));
+            
+            constraints.push(new Physics.Rod({
+                one: circles[0],
+                two: circles[1],
+                rigidity: 40,
+                length: 80
+            }));
+            constraints.push(new Physics.Rod({
+                one: circles[0],
+                two: circles[2],
+                rigidity: 40,
+                length: 80
+            }));
+            constraints.push(new Physics.Rod({
+                one: circles[1],
+                two: circles[2],
+                rigidity: 40,
+                length: 100
+            }));
+            
+            lines.push(new Physics.Line({
+                one: new Vector2(0, 300),
+                two: new Vector2(250, 350),
+            }));
+            lines.push(new Physics.Line({
+                one: new Vector2(250, 350),
+                two: new Vector2(400, 300),
+            }));
         };
-        draw();
-    });
+        
+        var loop = function() {
+            Draw.background(255);
+            
+            for(var i = 0; i < lines.length; i++) {
+                lines[i].draw();
+            }
+            for(var i = 0; i < circles.length; i++)  {
+                circles[i].display();
+                for(var j = 0; j < i; j++) {
+                    circles[i].collideCircle(circles[j]);
+                }
+                for(var j = 0; j < lines.length; j++) {
+                    circles[i].collideLine(lines[j]);
+                }
+            }
+            for(var i = 0; i < constraints.length; i++) {
+                constraints[i].display();
+            }
+            
+            requestAnimationFrame(loop);
+        };
+        
+        load(function() {
+            begin();
+            loop();
+        });
     </script>
 </html>

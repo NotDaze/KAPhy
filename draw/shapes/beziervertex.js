@@ -10,6 +10,6 @@ if(!Draw.bezierVertex) {
       return;
     }
     
-    Canvas.context.bezierCurveTo(Canvas.getX(cx1), Canvas.getY(cy1), Canvas.getX(cx2), Canvas.getY(cy2), Canvas.getX(x), Canvas.getY(y));
+    Canvas.context.bezierCurveTo(Canvas.toPixels(cx1), Canvas.toPixels(cy1), Canvas.toPixels(cx2), Canvas.toPixels(cy2), Canvas.toPixels(x), Canvas.toPixels(y));
   };
 }

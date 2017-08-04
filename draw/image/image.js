@@ -32,10 +32,10 @@ if(!Draw.image || KAPhy.version !== KAPhy.current) {
         break;
     }
     
-    realX = Canvas.getX(realX);
-    realY = Canvas.getY(realY);
-    realW = Canvas.getX(realW);
-    realH = Canvas.getY(realH);
+    realX = Canvas.toPixels(realX);
+    realY = Canvas.toPixels(realY);
+    realW = Canvas.toPixels(realW);
+    realH = Canvas.toPixels(realH);
     
     switch(arguments.length) {
       case 3: Canvas.context.drawImage(image, realX, realY); break;

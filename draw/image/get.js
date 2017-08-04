@@ -6,7 +6,7 @@ if(!Draw.get || KAPhy.version !== KAPhy.current) {
     }
     
     if(arguments.length === 4) {
-      var imageData = Canvas.context.getImageData(Canvas.getX(x), Canvas.getY(y), Canvas.getX(w), Canvas.getY(h));
+      var imageData = Canvas.context.getImageData(Canvas.toPixels(x), Canvas.toPixels(y), Canvas.toPixels(w), Canvas.toPixels(h));
       var newCanvas = document.createElement("canvas");
       newCanvas.width  = imageData.width;
       newCanvas.height = imageData.height;
@@ -14,7 +14,7 @@ if(!Draw.get || KAPhy.version !== KAPhy.current) {
       return newCanvas;
     }
     else if(arguments.length === 2) {
-      var dataAtPoint = Canvas.context.getImageData(Canvas.getX(x), Canvas.getY(y), 1, 1);
+      var dataAtPoint = Canvas.context.getImageData(Canvas.toPixels(x), Canvas.toPixels(y), 1, 1);
       return {
         r: dataAtPoint.data[0],
         g: dataAtPoint.data[1],

@@ -30,8 +30,8 @@ if (!Canvas.configure || KAPhy.version !== KAPhy.current) {
       var canvasBoundingRect = Canvas.element.getBoundingClientRect();
       Canvas.pmouseX = Canvas.mouseX;
       Canvas.pmouseY = Canvas.mouseY;
-      Canvas.mouseX = Math.round(Canvas.xFromConverted(e.clientX - canvasBoundingRect.left));
-      Canvas.mouseY = Math.round(Canvas.yFromConverted(e.clientY - canvasBoundingRect.top));
+      Canvas.mouseX = Math.round(Canvas.toCanvasUnits(e.clientX - canvasBoundingRect.left));
+      Canvas.mouseY = Math.round(Canvas.toCanvasUnits(e.clientY - canvasBoundingRect.top));
       
       if(Canvas.mouseMoved) {
         Canvas.mouseMoved();
