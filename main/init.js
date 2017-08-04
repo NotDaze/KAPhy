@@ -22,9 +22,11 @@ var fileSets = [
   [
     "canvas/init.js",
     "draw/init.js",
-    "physics/init.js"
+    "physics/init.js",
+    "animate/main.js"
   ],
   [
+    "animate/core.js",
     "canvas/utils/configure.js",
     "canvas/utils/deconfigure.js",
     "canvas/utils/resize.js",
