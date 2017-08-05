@@ -17,3 +17,4 @@ if(!Draw.text) {
     Canvas.context.fillText(content, Canvas.toPixels(x || 0), Canvas.toPixels(y || 0));
   };
 }
+else console.log("HECK");

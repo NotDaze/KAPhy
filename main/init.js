@@ -27,6 +27,7 @@ var fileSets = [
   ],
   [
     "animate/core.js",
+    "animate/animset.js",
     "canvas/utils/configure.js",
     "canvas/utils/deconfigure.js",
     "canvas/utils/resize.js",

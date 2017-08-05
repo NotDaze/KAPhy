@@ -19,77 +19,31 @@ I'm sure you want to know more. Go to https://github.com/TemporalFuzz/KAPhy for 
         var lines = [];
         var constraints = [];
         
+        var animSet;
+        
         var begin = function() {
             var canvasEl = document.getElementById("canvas");
             Canvas.configure(canvasEl);
             Canvas.resize(400, 400);
             
-            circles.push(new Physics.Circle({
-                pos: new Vector2(200, 0),
-                vel: new Vector2(0, 0),
-                rad: 20,
-                mass: 2
-            }));
-            circles.push(new Physics.Circle({
-                pos: new Vector2(150, 60),
-                vel: new Vector2(0, 0),
-                rad: 15,
-                mass: 1
-            }));
-            circles.push(new Physics.Circle({
-                pos: new Vector2(250, 60),
-                vel: new Vector2(0, 0),
-                rad: 15,
-                mass: 1
-            }));
-            
-            constraints.push(new Physics.Rod({
-                one: circles[0],
-                two: circles[1],
-                rigidity: 40,
-            }));
-            constraints.push(new Physics.Rod({
-                one: circles[0],
-                two: circles[2],
-                rigidity: 40,
-            }));
-            constraints.push(new Physics.Rod({
-                one: circles[1],
-                two: circles[2],
-                rigidity: 40,
-            }));
-            
-            lines.push(new Physics.Line({
-                one: new Vector2(0, 300),
-                two: new Vector2(240, 350),
-            }));
-            lines.push(new Physics.Line({
-                one: new Vector2(260, 350),
-                two: new Vector2(400, 300),
-            }));
+            animSet = new AnimationSet([{
+              start: 50,
+              final: 100,
+              transition: "easeInQuint",
+              duration: 500
+            },
+            {
+              start: 100,
+              final: 50,
+              transition: "easeOutQuint",
+              duration: 500
+            }], true);
         };
         
         var loop = function() {
             Draw.background(255);
             
-            for(var i = 0; i < lines.length; i++) {
-                lines[i].draw();
-            }
-            for(var i = 0; i < circles.length; i++)  {
-                circles[i].display();
-                if(Canvas.mouseIsPressed) {
-                  circles[i].moveTowards(new Vector2(Canvas.mouseX, Canvas.mouseY).canvasUnmap(), 6);
-                }
-                for(var j = 0; j < i; j++) {
-                    circles[i].collideCircle(circles[j]);
-                }
-                for(var j = 0; j < lines.length; j++) {
-                    circles[i].collideLine(lines[j]);
-                }
-            }
-            for(var i = 0; i < constraints.length; i++) {
-                constraints[i].display();
-            }
+            Draw.ellipse(200, 200, animSet.getValue(), animSet.getValue());
             
             requestAnimationFrame(loop);
         };
