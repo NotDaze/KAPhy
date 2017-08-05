@@ -26,6 +26,7 @@ if(!Draw || KAPhy.version !== KAPhy.current) {
     currentRectMode: "CORNER",
     currentImageMode: "CORNER",
     currentEllipseMode: "CENTER",
+    currentTextLineSpacing: 0.4,
     
     shapeOpen: false,
   };

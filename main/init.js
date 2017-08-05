@@ -23,11 +23,11 @@ var fileSets = [
     "canvas/init.js",
     "draw/init.js",
     "physics/init.js",
-    "animate/main.js"
+    "canvas/animation/main.js"
   ],
   [
-    "animate/core.js",
-    "animate/animset.js",
+    "canvas/animation/core.js",
+    "canvas/animation/animset.js",
     "canvas/utils/configure.js",
     "canvas/utils/deconfigure.js",
     "canvas/utils/resize.js",
@@ -64,6 +64,8 @@ var fileSets = [
     "draw/settings/textalign.js",
     "draw/settings/loadfont.js",
     "draw/settings/loadfontset.js",
+    "draw/settings/textlinespacing.js",
+    "draw/settings/gettextlinespacing.js",
     "draw/transform/popmatrix.js",
     "draw/transform/pushmatrix.js",
     "draw/transform/resetmatrix.js",

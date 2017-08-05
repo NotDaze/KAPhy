@@ -26,23 +26,23 @@ I'm sure you want to know more. Go to https://github.com/TemporalFuzz/KAPhy for 
             Canvas.configure(canvasEl);
             Canvas.resize(400, 400);
             
-            animSet = new AnimationSet([{
+            animSet = new Canvas.AnimationSet([{
               start: 50,
               final: 100,
-              transition: "easeInQuint",
-              duration: 500
+              transition: "easeOutQuad",
+              duration: 700,
             },
             {
               start: 100,
               final: 50,
-              transition: "easeOutQuint",
-              duration: 500
+              transition: "easeInQuad",
+              duration: 400
             }], true);
+            
         };
         
         var loop = function() {
             Draw.background(255);
-            
             Draw.ellipse(200, 200, animSet.getValue(), animSet.getValue());
             
             requestAnimationFrame(loop);
