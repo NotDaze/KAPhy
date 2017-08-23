@@ -1,11 +1,11 @@
-if(!Draw.arc) {
-  Draw.arc = function(x, y, w, h, start, stop) {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.arc) {
+  KAPhy.Draw.arc = function(x, y, w, h, start, stop) {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
-    if(Draw.shapeOn) {
+    if(KAPhy.Draw.shapeOn) {
       console.warn("KAPhy Warning - You can't use other shape commands when in shape mode.");
       return;
     }
@@ -15,7 +15,7 @@ if(!Draw.arc) {
         realW = w,
         realH = h;
     
-    switch(Draw.currentEllipseMode) {
+    switch(KAPhy.Draw.currentEllipseMode) {
       case CORNER: 
         realX = x - w/2;
         realY = y - h/2; break;
@@ -29,20 +29,20 @@ if(!Draw.arc) {
         realH = h * 2; break;
     }
     
-    if(Canvas.configured) {
-      realX = Canvas.toPixels(realX);
-      realY = Canvas.toPixels(realY);
-      realW = Canvas.toPixels(realW);
-      realH = Canvas.toPixels(realH);
+    if(KAPhy.Canvas.configured) {
+      realX = KAPhy.Canvas.toPixels(realX);
+      realY = KAPhy.Canvas.toPixels(realY);
+      realW = KAPhy.Canvas.toPixels(realW);
+      realH = KAPhy.Canvas.toPixels(realH);
     }
     
-    Canvas.context.beginPath();
-    Canvas.context.ellipse(realX, realY, realW, realH, 0, start, stop);
-    Canvas.context.lineTo(realX, realY);
-    Canvas.context.fill();
+    KAPhy.Canvas.context.beginPath();
+    KAPhy.Canvas.context.ellipse(realX, realY, realW, realH, 0, start, stop);
+    KAPhy.Canvas.context.lineTo(realX, realY);
+    KAPhy.Canvas.context.fill();
     
-    Canvas.context.beginPath();
-    Canvas.context.ellipse(realX, realY, realW, realH, 0, start, stop);
-    Canvas.context.stroke();
+    KAPhy.Canvas.context.beginPath();
+    KAPhy.Canvas.context.ellipse(realX, realY, realW, realH, 0, start, stop);
+    KAPhy.Canvas.context.stroke();
   };
 }

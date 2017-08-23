@@ -1,7 +1,7 @@
-if(!Canvas.Animation) {
-  Canvas.Animation = function(config, looped) {
+if(!KAPhy.Canvas.Animation) {
+  KAPhy.Canvas.Animation = function(config, looped) {
     if(config.transition) {
-      if(!Canvas.Animation.transitions[config.transition]) {
+      if(!KAPhy.Canvas.Animation.transitions[config.transition]) {
         console.warn("KAPhy Warning - Invalid animation transition specified. Defaulted to linear.");
         config.transition = "linear";
       }
@@ -17,7 +17,7 @@ if(!Canvas.Animation) {
     
     this.looped = looped || false;
   };
-  Canvas.Animation.transitions = {
+  KAPhy.Canvas.Animation.transitions = {
     linear: function(x) { return x; },
     easeInSine: function(x) { return -Math.sin((x + 1) * Math.PI/2) + 1; },
     easeOutSine: function(x) { return Math.sin(x * Math.PI/2); },

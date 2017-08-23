@@ -1,12 +1,12 @@
-if(!Draw.strokeJoin) {
-  Draw.strokeJoin = function(newJoin) {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.strokeJoin) {
+  KAPhy.Draw.strokeJoin = function(newJoin) {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
     if(newJoin === MITER || newJoin === ROUND || newJoin === BEVEL) {
-      Canvas.context.lineJoin = newJoin;
+      KAPhy.Canvas.context.lineJoin = newJoin;
     }
   };
 }

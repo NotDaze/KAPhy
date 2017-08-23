@@ -1,10 +1,10 @@
-if(!Draw.getStrokeJoin) {
-  Draw.getStrokeJoin = function() {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.getStrokeJoin) {
+  KAPhy.Draw.getStrokeJoin = function() {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
-    return Canvas.context.lineJoin;
+    return KAPhy.Canvas.context.lineJoin;
   };
 }

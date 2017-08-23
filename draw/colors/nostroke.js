@@ -1,19 +1,19 @@
-if(!Draw.noStroke || KAPhy.version !== KAPhy.current) {
-  Draw.noStroke = function() {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.noStroke) {
+  KAPhy.Draw.noStroke = function() {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
-    if(Draw.shapeOn) {
+    if(KAPhy.Draw.shapeOn) {
       console.warn("KAPhy Warning - You can't use color commands when in shape mode.");
       return;
     }
     
     if(arguments.length !== 0) {
-      console.warn("KAPhy Warning - Draw.noStroke() takes 0 arguments.");
+      console.warn("KAPhy Warning - KAPhy.Draw.noStroke() takes 0 arguments.");
     }
     
-    Canvas.context.strokeStyle = "rgba(0, 0, 0, 0.0)";
+    KAPhy.Canvas.context.strokeStyle = "rgba(0, 0, 0, 0.0)";
   };
 }

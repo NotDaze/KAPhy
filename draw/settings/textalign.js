@@ -1,15 +1,15 @@
-if(!Draw.textAlign) {
-  Draw.textAlign = function(newAlign, yAlign) {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.textAlign) {
+  KAPhy.Draw.textAlign = function(newAlign, yAlign) {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
     if(arguments.length > 2) {
-      console.warn("KAPhy Warning - Draw.textAlign() takes 0 - 2 arguments.");
+      console.warn("KAPhy Warning - KAPhy.Draw.textAlign() takes 0 - 2 arguments.");
     }
     
-    Canvas.context.textAlign = newAlign || "left";
-    if(yAlign) Canvas.context.textBaseline = yAlign;
+    KAPhy.Canvas.context.textAlign = newAlign || "left";
+    if(yAlign) KAPhy.Canvas.context.textBaseline = yAlign;
   };
 }

@@ -1,5 +1,5 @@
-if(!Draw.loadFont) {
-  Draw.loadFont = function(font, onLoad) {
+if(!KAPhy.Draw.loadFont) {
+  KAPhy.Draw.loadFont = function(font, onLoad) {
     var newLink = document.createElement("link");
     
     newLink.rel = "stylesheet";

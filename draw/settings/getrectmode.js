@@ -1,10 +1,10 @@
-if(!Draw.getRectMode) {
-  Draw.getRectMode = function() {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.getRectMode) {
+  KAPhy.Draw.getRectMode = function() {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
-    return Draw.currentRectMode;
+    return KAPhy.Draw.currentRectMode;
   };
 }

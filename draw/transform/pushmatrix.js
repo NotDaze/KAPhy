@@ -1,15 +1,15 @@
-if(!Draw.pushMatrix) {
-  Draw.pushMatrix = function() {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.pushMatrix) {
+  KAPhy.Draw.pushMatrix = function() {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
-    if(Draw.shapeOn) {
+    if(KAPhy.Draw.shapeOn) {
       console.warn("KAPhy Warning - You cannot use transformation commands in shape mode.");
       return;
     }
     
-    Canvas.context.save();
+    KAPhy.Canvas.context.save();
   };
 }

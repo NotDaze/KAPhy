@@ -1,10 +1,10 @@
-if(!Draw.getStrokeCap) {
-  Draw.getStrokeCap = function() {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.getStrokeCap) {
+  KAPhy.Draw.getStrokeCap = function() {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
-    return Canvas.context.lineCap;
+    return KAPhy.Canvas.context.lineCap;
   };
 }

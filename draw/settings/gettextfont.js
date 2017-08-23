@@ -1,12 +1,12 @@
-if(!Draw.getTextFont) {
-  Draw.getTextFont = function() {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.getTextFont) {
+  KAPhy.Draw.getTextFont = function() {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
-    var currentFont = Canvas.context.font.split(" ");
+    var currentFont = KAPhy.Canvas.context.font.split(" ");
     
-    return Canvas.toCanvasUnits(currentFont[currentFont.length - 1]);
+    return KAPhy.Canvas.toCanvasUnits(currentFont[currentFont.length - 1]);
   };
 }

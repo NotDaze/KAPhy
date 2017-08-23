@@ -1,4 +1,4 @@
-if(!Images || KAPhy.version !== KAPhy.current) {
+if(!Images) {
   var Images = {
     avatarTeam: "https://www.kasandbox.org/programming-images/avatars/avatar-team.png",
     aqualineSeed: "https://www.kasandbox.org/programming-images/avatars/aqualine-seed.png",

@@ -1,9 +1,9 @@
-if(!Physics.Rod || KAPhy.version !== KAPhy.current) {
-  Physics.Rod = function(config) {
-    Physics.Constraint.call(this, config);
+if(!KAPhy.Physics.Rod) {
+  KAPhy.Physics.Rod = function(config) {
+    KAPhy.Physics.Constraint.call(this, config);
   };
-  Physics.Rod.prototype = Object.create(Physics.Constraint.prototype);
-  Physics.Rod.prototype.update = function() {
+  KAPhy.Physics.Rod.prototype = Object.create(KAPhy.Physics.Constraint.prototype);
+  KAPhy.Physics.Rod.prototype.update = function() {
     this.springEffect();
     this.forceCompensate();
   };

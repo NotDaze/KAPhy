@@ -1,5 +1,5 @@
-if(!Canvas || KAPhy.version !== KAPhy.current) {
-  var Canvas = {
+if(!KAPhy.Canvas) {
+  KAPhy.Canvas = {
     configured: false,
     relWidth: null,
     relHeight: null,

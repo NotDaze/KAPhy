@@ -1,10 +1,10 @@
-if(!Draw.getStrokeWeight || KAPhy.version !== KAPhy.current) {
-  Draw.getStrokeWeight = function() {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.getStrokeWeight) {
+  KAPhy.Draw.getStrokeWeight = function() {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
-    return Canvas.toCanvasUnits(Canvas.context.lineWidth || 0);
+    return KAPhy.Canvas.toCanvasUnits(KAPhy.Canvas.context.lineWidth || 0);
   };
 }

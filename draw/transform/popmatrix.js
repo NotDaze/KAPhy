@@ -1,39 +1,39 @@
-if(!Draw.popMatrix) {
-  Draw.popMatrix = function() {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.popMatrix) {
+  KAPhy.Draw.popMatrix = function() {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
-    if(Draw.shapeOn) {
+    if(KAPhy.Draw.shapeOn) {
       console.warn("KAPhy Warning - You cannot use transformation commands in shape mode.");
       return;
     }
     
-    var oldFillStyle    = Canvas.context.fillStyle;
-    var oldStrokeStyle  = Canvas.context.strokeStyle;
-    var oldLineWidth    = Canvas.context.lineWidth;
-    var oldLineCap      = Canvas.context.lineCap;
-    var oldLineJoin     = Canvas.context.lineJoin;
-    var oldGlobalAlpha  = Canvas.context.globalAlpha;
-    var oldMiterLimit   = Canvas.context.miterLimit;
-    var oldFont         = Canvas.context.font;
-    var oldTextAlign    = Canvas.context.textAlign;
-    var oldTextBaseline = Canvas.context.textBaseline;
-    var oldSmoothing    = Canvas.context.imageSmoothingEnabled;
+    var oldFillStyle    = KAPhy.Canvas.context.fillStyle;
+    var oldStrokeStyle  = KAPhy.Canvas.context.strokeStyle;
+    var oldLineWidth    = KAPhy.Canvas.context.lineWidth;
+    var oldLineCap      = KAPhy.Canvas.context.lineCap;
+    var oldLineJoin     = KAPhy.Canvas.context.lineJoin;
+    var oldGlobalAlpha  = KAPhy.Canvas.context.globalAlpha;
+    var oldMiterLimit   = KAPhy.Canvas.context.miterLimit;
+    var oldFont         = KAPhy.Canvas.context.font;
+    var oldTextAlign    = KAPhy.Canvas.context.textAlign;
+    var oldTextBaseline = KAPhy.Canvas.context.textBaseline;
+    var oldSmoothing    = KAPhy.Canvas.context.imageSmoothingEnabled;
     
-    Canvas.context.restore();
+    KAPhy.Canvas.context.restore();
     
-    Canvas.context.fillStyle    = oldFillStyle;
-    Canvas.context.strokeStyle  = oldStrokeStyle;
-    Canvas.context.lineWidth    = oldLineWidth;
-    Canvas.context.lineCap      = oldLineCap;
-    Canvas.context.lineJoin     = oldLineJoin;
-    Canvas.context.globalAlpha  = oldGlobalAlpha;
-    Canvas.context.miterLimit   = oldMiterLimit;
-    Canvas.context.font         = oldFont;
-    Canvas.context.textAlign    = oldTextAlign;
-    Canvas.context.textBaseline = oldTextBaseline;
-    Canvas.context.imageSmoothingEnabled = oldSmoothing;
+    KAPhy.Canvas.context.fillStyle    = oldFillStyle;
+    KAPhy.Canvas.context.strokeStyle  = oldStrokeStyle;
+    KAPhy.Canvas.context.lineWidth    = oldLineWidth;
+    KAPhy.Canvas.context.lineCap      = oldLineCap;
+    KAPhy.Canvas.context.lineJoin     = oldLineJoin;
+    KAPhy.Canvas.context.globalAlpha  = oldGlobalAlpha;
+    KAPhy.Canvas.context.miterLimit   = oldMiterLimit;
+    KAPhy.Canvas.context.font         = oldFont;
+    KAPhy.Canvas.context.textAlign    = oldTextAlign;
+    KAPhy.Canvas.context.textBaseline = oldTextBaseline;
+    KAPhy.Canvas.context.imageSmoothingEnabled = oldSmoothing;
   };
 }

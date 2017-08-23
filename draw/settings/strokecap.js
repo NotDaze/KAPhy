@@ -1,12 +1,12 @@
-if(!Draw.strokeCap) {
-  Draw.strokeCap = function(newCap) {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.strokeCap) {
+  KAPhy.Draw.strokeCap = function(newCap) {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
     if(newCap === ROUND || newCap === SQUARE || newCap === PROJECT) {
-      Canvas.context.lineCap = newCap;
+      KAPhy.Canvas.context.lineCap = newCap;
     }
   };
 }

@@ -1,92 +1,91 @@
-if (!Canvas.configure || KAPhy.version !== KAPhy.current) {
-  Canvas.configure = function(canvasElement) {
+if (!KAPhy.Canvas.configure) {
+  KAPhy.Canvas.configure = function(canvasElement) {
     if (this.configured) {
       console.warn("KAPhy Warning - Please deconfigure canvas before reconfiguring it.");
       return;
     }
 
-    Canvas.element = canvasElement;
-    Canvas.configured = true;
+    KAPhy.Canvas.element = canvasElement;
+    KAPhy.Canvas.configured = true;
 
-    Canvas.relWidth = canvasElement.width;
-    Canvas.relHeight = canvasElement.height;
+    KAPhy.Canvas.relWidth = canvasElement.width;
+    KAPhy.Canvas.relHeight = canvasElement.height;
 
-    Canvas.context = canvasElement.getContext("2d");
-    Canvas.context.fillStyle = "rgba(255, 255, 255, 1.0)";
+    KAPhy.Canvas.context = canvasElement.getContext("2d");
+    KAPhy.Canvas.context.fillStyle = "rgba(255, 255, 255, 1.0)";
     
-    Canvas.pmouseX = 0;
-    Canvas.pmouseY = 0;
-    Canvas.mouseX = 0;
-    Canvas.mouseY = 0;
+    KAPhy.Canvas.pmouseX = 0;
+    KAPhy.Canvas.pmouseY = 0;
+    KAPhy.Canvas.mouseX = 0;
+    KAPhy.Canvas.mouseY = 0;
     
-    Canvas.mouseIsPressed = false;
+    KAPhy.Canvas.mouseIsPressed = false;
+    KAPhy.Canvas.pmouseIsPressed = false;
     
-    Canvas.keys = {};
-    Canvas.keyIsPressed = false;
-    Canvas.lastKeyTriggered = null;
-    Canvas.lastKeyEvent = null;
+    KAPhy.Canvas.keys = {};
+    KAPhy.Canvas.keyIsPressed = false;
+    KAPhy.Canvas.lastKeyTriggered = null;
+    KAPhy.Canvas.lastKeyEvent = null;
     
-    Canvas.element.onmousemove = function(e) {
-      var canvasBoundingRect = Canvas.element.getBoundingClientRect();
-      Canvas.pmouseX = Canvas.mouseX;
-      Canvas.pmouseY = Canvas.mouseY;
-      Canvas.mouseX = Math.round(Canvas.toCanvasUnits(e.clientX - canvasBoundingRect.left));
-      Canvas.mouseY = Math.round(Canvas.toCanvasUnits(e.clientY - canvasBoundingRect.top));
+    KAPhy.Canvas.element.onmousemove = function(e) {
+      var canvasBoundingRect = KAPhy.Canvas.element.getBoundingClientRect();
+      KAPhy.Canvas.mouseX = Math.round(KAPhy.Canvas.toCanvasUnits(e.clientX - canvasBoundingRect.left));
+      KAPhy.Canvas.mouseY = Math.round(KAPhy.Canvas.toCanvasUnits(e.clientY - canvasBoundingRect.top));
       
-      if(Canvas.mouseMoved) {
-        Canvas.mouseMoved();
+      if(KAPhy.Canvas.mouseMoved) {
+        KAPhy.Canvas.mouseMoved();
       }
-      if(Canvas.mouseIsPressed && Canvas.mouseDragged) {
-        Canvas.mouseDragged();
+      if(KAPhy.Canvas.mouseIsPressed && KAPhy.Canvas.mouseDragged) {
+        KAPhy.Canvas.mouseDragged();
       }
     };
-    Canvas.element.onmousedown = function() {
-      Canvas.mouseIsPressed = true;
+    KAPhy.Canvas.element.onmousedown = function() {
+      KAPhy.Canvas.mouseIsPressed = true;
       
-      if(Canvas.mousePressed) { Canvas.mousePressed(); }
+      if(KAPhy.Canvas.mousePressed) { KAPhy.Canvas.mousePressed(); }
     };
-    Canvas.element.onmouseup = function() {
-      Canvas.mouseIsPressed = false;
+    KAPhy.Canvas.element.onmouseup = function() {
+      KAPhy.Canvas.mouseIsPressed = false;
       
-      if(Canvas.mouseClicked) { Canvas.mouseClicked(); }
-      if(Canvas.mouseReleased) { Canvas.mouseReleased(); }//These are exactly the same in PJS...
+      if(KAPhy.Canvas.mouseClicked) { KAPhy.Canvas.mouseClicked(); }
+      if(KAPhy.Canvas.mouseReleased) { KAPhy.Canvas.mouseReleased(); }//These are exactly the same in PJS...
     };
-    Canvas.element.onmouseout = function() {
-      if(Canvas.mouseOut) { Canvas.mouseOut(); }
+    KAPhy.Canvas.element.onmouseout = function() {
+      if(KAPhy.Canvas.mouseOut) { KAPhy.Canvas.mouseOut(); }
     };
-    Canvas.element.onmouseover = function() {
-      if(Canvas.mouseOver) { Canvas.mouseOver(); }
+    KAPhy.Canvas.element.onmouseover = function() {
+      if(KAPhy.Canvas.mouseOver) { KAPhy.Canvas.mouseOver(); }
     };
     
     window.onkeydown = function(e) {
-      if(Canvas.keys[e.key.toLowerCase()]) { return; }
+      if(KAPhy.Canvas.keys[e.key.toLowerCase()]) { return; }
       
-      Canvas.keys[e.key.toLowerCase()] = true;
+      KAPhy.Canvas.keys[e.key.toLowerCase()] = true;
       
-      Canvas.keyIsPressed = true;
-      Canvas.lastKeyDown = e.key.toLowerCase();
+      KAPhy.Canvas.keyIsPressed = true;
+      KAPhy.Canvas.lastKeyDown = e.key.toLowerCase();
       
-      if(Canvas.keyPressed) { Canvas.keyPressed(); }
+      if(KAPhy.Canvas.keyPressed) { KAPhy.Canvas.keyPressed(); }
     };
     
     window.onkeyup = function(e) {
-      if(!Canvas.keys[e.key.toLowerCase()]) { return; }
+      if(!KAPhy.Canvas.keys[e.key.toLowerCase()]) { return; }
       
-      Canvas.keys[e.key.toLowerCase()] = false;
+      KAPhy.Canvas.keys[e.key.toLowerCase()] = false;
       
-      Canvas.lastKeyUp = e.key.toLowerCase();
+      KAPhy.Canvas.lastKeyUp = e.key.toLowerCase();
       
       var scopeChanger = function() {
-        for(var i in Canvas.keys) {
-          if(Canvas.keys[i]) {
+        for(var i in KAPhy.Canvas.keys) {
+          if(KAPhy.Canvas.keys[i]) {
             return;
           }
         }
-        Canvas.keyIsPressed = false;
+        KAPhy.Canvas.keyIsPressed = false;
       }();
       
-      if(Canvas.keyReleased) { Canvas.keyReleased(); }
-      if(Canvas.keyTyped) { Canvas.keyTyped(); }//These are exactly the same too, lol
+      if(KAPhy.Canvas.keyReleased) { KAPhy.Canvas.keyReleased(); }
+      if(KAPhy.Canvas.keyTyped) { KAPhy.Canvas.keyTyped(); }//These are exactly the same too, lol
     };
   };
 }

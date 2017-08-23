@@ -1,11 +1,11 @@
-if(!Draw.beginShape || KAPhy.version !== KAPhy.current) {
-  Draw.beginShape = function() {
-    if(Draw.shapeOn) {
+if(!KAPhy.Draw.beginShape) {
+  KAPhy.Draw.beginShape = function() {
+    if(KAPhy.Draw.shapeOn) {
       console.warn("KAPhy Warning - Cannot reinitialize shape.");
       return;
     }
     
-    Canvas.context.beginPath();
-    Draw.shapeOn = true;
+    KAPhy.Canvas.context.beginPath();
+    KAPhy.Draw.shapeOn = true;
   };
 }

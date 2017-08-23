@@ -1,10 +1,10 @@
-if(!Draw.getImageMode) {
-  Draw.getImageMode = function() {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.getImageMode) {
+  KAPhy.Draw.getImageMode = function() {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
-    return Draw.currentImageMode;
+    return KAPhy.Draw.currentImageMode;
   };
 }

@@ -1,14 +1,14 @@
-if(!Draw.textLineSpacing) {
-  Draw.textLineSpacing = function(newSpacing) {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.textLineSpacing) {
+  KAPhy.Draw.textLineSpacing = function(newSpacing) {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
     if(arguments.length !== 1) {
-      console.warn("KAPhy Warning - Draw.textLineSpacing() takes 1 argument.");
+      console.warn("KAPhy Warning - KAPhy.Draw.textLineSpacing() takes 1 argument.");
     }
     
-    Draw.currentTextLineSpacing = (newSpacing === 0 ? 0 : (newSpacing || 0.4));
+    KAPhy.Draw.currentTextLineSpacing = (newSpacing === 0 ? 0 : (newSpacing || 0.4));
   };
 }

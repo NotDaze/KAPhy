@@ -1,29 +1,20 @@
-if (!KAPhy) {
-  var KAPhy = {
-    loaded: false,
-    current: "0.0.5.2",
-    install: function() {
-      if (KAPhy.version !== KAPhy.current) {
-        console.log("KAPhy is updating, installing, or rebuilding.");
-      }
-    },
-    finishUpdate: function() {
-      if (KAPhy.version !== KAPhy.current) {
-        KAPhy.version = KAPhy.current;
-        console.log("KAPhy build finished!");
-      }
-      console.log("KAPhy loaded!");
-    },
-  };
-}
-KAPhy.install();
+var KAPhy = {
+  loaded: false,
+  loopedFunction: null,
+  loopedFunctionInterval: null,
+  loopedFunctionFrameRate: 60
+};
+
 
 var fileSets = [
   [
     "canvas/init.js",
     "draw/init.js",
     "physics/init.js",
-    "canvas/animation/main.js"
+    "canvas/animation/main.js",
+    "main/importka.js",
+    "main/loop.js",
+    "ui/init.js",
   ],
   [
     "canvas/animation/core.js",
@@ -31,10 +22,13 @@ var fileSets = [
     "canvas/utils/configure.js",
     "canvas/utils/deconfigure.js",
     "canvas/utils/resize.js",
+    "canvas/utils/update.js",
     "canvas/utils/coordinates.js",
     "physics/minilibs/equation.js",
     "physics/minilibs/vector2/init.js",
     "physics/minilibs/collisiondetection.js",
+    "ui/basic.js",
+    "ui/updateset.js"
   ],
   [
     "draw/colors/fill.js",
@@ -97,12 +91,16 @@ var fileSets = [
     "physics/minilibs/vector2/dot.js",
     "physics/minilibs/vector2/magnitude.js",
     "physics/minilibs/vector2/reflect.js",
-    "physics/minilibs/vector2/canvasmap.js"
+    "physics/minilibs/vector2/canvasmap.js",
+    "ui/rectbasic.js",
+    "ui/ellipsebasic.js"
   ],
   [
     "physics/entities/circle/init.js",
     "physics/entities/line.js",
     "physics/entities/constraints/constraint.js",
+    "ui/rectbutton.js",
+    "ui/ellipsebutton.js"
   ],
   [
     "physics/entities/constraints/bungee.js",
@@ -115,17 +113,13 @@ var fileSets = [
     "physics/entities/circle/force.js",
     "physics/entities/circle/collideline.js",
     "physics/entities/circle/collidecircle.js",
+    "ui/rectdragger.js",
+    "ui/ellipsedragger.js"
   ]
 ];
 
-function load(onComplete) {
+KAPhy.load = function(onComplete) {
   if(KAPhy.loaded) { return; }
-  
-  if(KAPhy.version === KAPhy.current) {
-    if(onComplete) { onComplete(); }
-    KAPhy.loaded = true;
-    return;
-  }
   
   KAPhy.loaded = true;
   
@@ -133,7 +127,8 @@ function load(onComplete) {
     var newScript = document.createElement("script");
 
     newScript.type = "text/javascript";
-    newScript.src = "https://rawgit.com/TemporalFuzz/KAPhy/master/" + filename;
+    //newScript.src = "https://rawgit.com/TemporalFuzz/KAPhy/master/" + filename;
+    newScript.src = "./" + filename;
 
     newScript.onload = onLoad;
 
@@ -158,7 +153,6 @@ function load(onComplete) {
   function loadNext() {
     i++;
     if (i >= fileSets.length) {
-      KAPhy.finishUpdate();
       if (onComplete) { onComplete(); }
       return;
     } else {

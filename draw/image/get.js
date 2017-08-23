@@ -1,12 +1,12 @@
-if(!Draw.get || KAPhy.version !== KAPhy.current) {
-  Draw.get = function(x, y, w, h) {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.get) {
+  KAPhy.Draw.get = function(x, y, w, h) {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
     if(arguments.length === 4) {
-      var imageData = Canvas.context.getImageData(Canvas.toPixels(x), Canvas.toPixels(y), Canvas.toPixels(w), Canvas.toPixels(h));
+      var imageData = KAPhy.Canvas.context.getImageData(KAPhy.Canvas.toPixels(x), KAPhy.Canvas.toPixels(y), KAPhy.Canvas.toPixels(w), KAPhy.Canvas.toPixels(h));
       var newCanvas = document.createElement("canvas");
       newCanvas.width  = imageData.width;
       newCanvas.height = imageData.height;
@@ -14,7 +14,7 @@ if(!Draw.get || KAPhy.version !== KAPhy.current) {
       return newCanvas;
     }
     else if(arguments.length === 2) {
-      var dataAtPoint = Canvas.context.getImageData(Canvas.toPixels(x), Canvas.toPixels(y), 1, 1);
+      var dataAtPoint = KAPhy.Canvas.context.getImageData(KAPhy.Canvas.toPixels(x), KAPhy.Canvas.toPixels(y), 1, 1);
       return {
         r: dataAtPoint.data[0],
         g: dataAtPoint.data[1],

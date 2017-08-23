@@ -8,49 +8,60 @@ I'm sure you want to know more. Go to https://github.com/TemporalFuzz/KAPhy for 
 -->
 <html>
     <head>
-        <title></title>
+        <title>KAPhy KAPhy.Physics Demo</title>
         <script type="text/javascript" src="./main/init.js"></script>
     </head>
     <body style="background-color: #AAA;margin:0px">
         <canvas id="canvas" style="margin:auto;background-color:#FFF;display:block">You don't have canvas support! Try switching to a different browser.</canvas>
     </body>
     <script>
-        var circles = [];
-        var lines = [];
-        var constraints = [];
-        
-        var animSet;
+        var ui = [];
         
         var begin = function() {
             var canvasEl = document.getElementById("canvas");
-            Canvas.configure(canvasEl);
-            Canvas.resize(400, 400);
+            KAPhy.Canvas.configure(canvasEl);
+            KAPhy.Canvas.resize(400, 400);
             
-            animSet = new Canvas.AnimationSet([{
-              start: 50,
-              final: 100,
-              transition: "easeOutQuad",
-              duration: 700,
-            },
-            {
-              start: 100,
-              final: 50,
-              transition: "easeInQuad",
-              duration: 400
-            }], true);
+            KAPhy.Draw.strokeCap("round");
             
+            ui.push(new KAPhy.Interface.RectDragger({
+              x: 100,
+              y: 100,
+              w: 150,
+              h: 100,
+              onPress: function() {
+                console.log("Pressed!");
+              },
+              onRelease: function() {
+                console.log("Released!");
+              }
+            }));
+            ui.push(new KAPhy.Interface.EllipseDragger({
+              x: 100,
+              y: 100,
+              w: 150,
+              h: 100,
+              onPress: function() {
+                console.log("Pressed!");
+              },
+              onRelease: function() {
+                console.log("Released!");
+              }
+            }));
         };
         
         var loop = function() {
-            Draw.background(255);
-            Draw.ellipse(200, 200, animSet.getValue(), animSet.getValue());
-            
-            requestAnimationFrame(loop);
+            KAPhy.Draw.background(255);
+            KAPhy.Draw.fill(255, 0, 0);
+            KAPhy.Interface.updateSet(ui);
+            for(var i = 0; i < ui.length; i++) {
+              ui[i].draw();
+            }
         };
         
-        load(function() {
+        KAPhy.load(function() {
             begin();
-            loop();
+            KAPhy.loop(loop);
         });
     </script>
 </html>

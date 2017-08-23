@@ -1,9 +1,9 @@
-if(!Physics.Spring || KAPhy.version !== KAPhy.current) {
-  Physics.Spring = function(config) {
-    Physics.Constraint.call(this, config);
+if(!KAPhy.Physics.Spring) {
+  KAPhy.Physics.Spring = function(config) {
+    KAPhy.Physics.Constraint.call(this, config);
   };
-  Physics.Spring.prototype = Object.create(Physics.Constraint.prototype);
-  Physics.Spring.prototype.update = function() {
+  KAPhy.Physics.Spring.prototype = Object.create(KAPhy.Physics.Constraint.prototype);
+  KAPhy.Physics.Spring.prototype.update = function() {
     this.springEffect();
   };
 }

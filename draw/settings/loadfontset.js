@@ -1,5 +1,5 @@
-if(!Draw.loadFontSet) {
-  Draw.loadFontSet = function(fonts, onFinish) {
+if(!KAPhy.Draw.loadFontSet) {
+  KAPhy.Draw.loadFontSet = function(fonts, onFinish) {
     var fontsLoaded = 0;
     for(var i = 0; i < fonts.length; i++) {
       var newLink = document.createElement("link");

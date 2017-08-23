@@ -1,19 +1,19 @@
-if(!Physics.Circle.prototype.update) {
-  Physics.Circle.prototype.update = function() {
+if(!KAPhy.Physics.Circle.prototype.update) {
+  KAPhy.Physics.Circle.prototype.update = function() {
     if (this.fixed) {
       this.asleep = false;
-      this.vel = new Vector2();
+      this.vel = new KAPhy.Physics.Vector2();
       return;
     }
 
-    if (this.vel.magSq() > Physics.sleepThreshold * Physics.sleepThreshold || this.buoyancyForce > 0) {
+    if (this.vel.magSq() > KAPhy.Physics.sleepThreshold * KAPhy.Physics.sleepThreshold || this.buoyancyForce > 0) {
       this.asleep = false;
     }
     this.pos.add(this.vel) //Add velocity to position
 
-    this.vel.y += Canvas.toPixels(Physics.gravityForce - this.buoyancyForce); //Gravity
+    this.vel.y += KAPhy.Canvas.toPixels(KAPhy.Physics.gravityForce - this.buoyancyForce); //Gravity
 
-    this.vel.mult((this.asleep ? Physics.airResistanceSleeping : this.waterDrag * Physics.airResistance)); //Air resistance
+    this.vel.mult((this.asleep ? KAPhy.Physics.airResistanceSleeping : this.waterDrag * KAPhy.Physics.airResistance)); //Air resistance
 
     this.buoyancyForce = 0;
     this.waterDrag = 1;
@@ -21,13 +21,13 @@ if(!Physics.Circle.prototype.update) {
     this.manageAdjustments();
   };
 }
-if(!Physics.Circle.prototype.draw) {
-  Physics.Circle.prototype.draw = function() {
-    Draw.ellipse(Canvas.toCanvasUnits(this.pos.x), Canvas.toCanvasUnits(this.pos.y), this.rad * 2, this.rad * 2);
+if(!KAPhy.Physics.Circle.prototype.draw) {
+  KAPhy.Physics.Circle.prototype.draw = function() {
+    KAPhy.Draw.ellipse(KAPhy.Canvas.toCanvasUnits(this.pos.x), KAPhy.Canvas.toCanvasUnits(this.pos.y), this.rad * 2, this.rad * 2);
   };
 }
-if(!Physics.Circle.prototype.display) {
-  Physics.Circle.prototype.display = function() {
+if(!KAPhy.Physics.Circle.prototype.display) {
+  KAPhy.Physics.Circle.prototype.display = function() {
     if (this.move) {
       this.move();
     }
@@ -35,24 +35,24 @@ if(!Physics.Circle.prototype.display) {
     this.draw();
   };
 }
-if(!Physics.Circle.prototype.manageAdjustments) {
-  Physics.Circle.prototype.manageAdjustments = function() {
+if(!KAPhy.Physics.Circle.prototype.manageAdjustments) {
+  KAPhy.Physics.Circle.prototype.manageAdjustments = function() {
     if (this.posAdjustments.length === 0) {
       return;
     }
 
-    var adjustmentAvg = new Vector2();
+    var adjustmentAvg = new KAPhy.Physics.Vector2();
     for (var i = 0; i < this.posAdjustments.length; i++) {
       adjustmentAvg.add(this.posAdjustments[i]);
     }
-    this.pos = Vector2.lerp(this.pos, Vector2.div(adjustmentAvg, this.posAdjustments.length), Physics.constraintAdjustment);
+    this.pos = KAPhy.Physics.Vector2.lerp(this.pos, KAPhy.Physics.Vector2.div(adjustmentAvg, this.posAdjustments.length), KAPhy.Physics.constraintAdjustment);
 
     this.posAdjustments = [];
   };
 }
-if(!Physics.Circle.prototype.trySleep) {
-  Physics.Circle.prototype.trySleep = function() {
-    if (Vector2.magSq(this.vel) < Physics.sleepThreshold * Physics.sleepThreshold) {
+if(!KAPhy.Physics.Circle.prototype.trySleep) {
+  KAPhy.Physics.Circle.prototype.trySleep = function() {
+    if (KAPhy.Physics.Vector2.magSq(this.vel) < KAPhy.Physics.sleepThreshold * KAPhy.Physics.sleepThreshold) {
       this.asleep = true;
     }
   };

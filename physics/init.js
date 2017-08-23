@@ -1,5 +1,5 @@
-if(!Physics) {
-  var Physics = {
+if(!KAPhy.Physics) {
+  KAPhy.Physics = {
     airResistance: 0.99,//The velocity of everything is multiplied by this number each frame.
     airResistanceSleeping: 0.9,//The air resistance of something that is "asleep".
   

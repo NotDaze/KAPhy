@@ -1,12 +1,12 @@
-if(!Draw.ellipseMode || KAPhy.version !== KAPhy.current) {
-  Draw.ellipseMode = function(newMode) {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.ellipseMode) {
+  KAPhy.Draw.ellipseMode = function(newMode) {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
     if(newMode === CENTER || newMode === CORNER || newMode === CORNERS || newMode === RADIUS) {
-      Draw.currentEllipseMode = newMode;
+      KAPhy.Draw.currentEllipseMode = newMode;
     }
   };
 }

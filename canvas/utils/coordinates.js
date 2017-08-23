@@ -1,10 +1,10 @@
-if(!Canvas.toPixels) {
-  Canvas.toPixels = function(n) {
-    return n * Canvas.element.width/Canvas.relWidth;
+if(!KAPhy.Canvas.toPixels) {
+  KAPhy.Canvas.toPixels = function(n) {
+    return n * KAPhy.Canvas.element.width/KAPhy.Canvas.relWidth;
   };
 }
-if(!Canvas.toCanvasUnits) {
-  Canvas.toCanvasUnits = function(n) {
-    return n * Canvas.relHeight/Canvas.element.height;
+if(!KAPhy.Canvas.toCanvasUnits) {
+  KAPhy.Canvas.toCanvasUnits = function(n) {
+    return n * KAPhy.Canvas.relHeight/KAPhy.Canvas.element.height;
   }
 }

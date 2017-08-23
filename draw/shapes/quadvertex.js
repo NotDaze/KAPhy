@@ -1,15 +1,15 @@
-if(!Draw.quadVertex || KAPhy.version !== KAPhy.current) {
-  Draw.quadVertex = function(cx, cy, x, y) {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.quadVertex) {
+  KAPhy.Draw.quadVertex = function(cx, cy, x, y) {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
-    if(!Draw.shapeOn) {
-      console.warn("KAPhy Warning - You can only use Draw.quadVertex() in shape mode.");
+    if(!KAPhy.Draw.shapeOn) {
+      console.warn("KAPhy Warning - You can only use KAPhy.Draw.quadVertex() in shape mode.");
       return;
     }
     
-    Canvas.context.quadraticCurveTo(Canvas.toPixels(cx), Canvas.toPixels(cy), Canvas.toPixels(x), Canvas.toPixels(y));
+    KAPhy.Canvas.context.quadraticCurveTo(KAPhy.Canvas.toPixels(cx), KAPhy.Canvas.toPixels(cy), KAPhy.Canvas.toPixels(x), KAPhy.Canvas.toPixels(y));
   };
 }

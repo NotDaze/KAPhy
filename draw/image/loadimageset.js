@@ -1,7 +1,7 @@
-if(!Draw.loadImageSet || KAPhy.version !== KAPhy.current) {
-  Draw.loadImageSet = function(imagesToLoad, onFinish) {
+if(!KAPhy.Draw.loadImageSet) {
+  KAPhy.Draw.loadImageSet = function(imagesToLoad, onFinish) {
     if(arguments.length === 0) {
-      console.warn("KAPhy Warning - Draw.loadImageSet() takes at least 1 argument.");
+      console.warn("KAPhy Warning - KAPhy.Draw.loadImageSet() takes at least 1 argument.");
       return;
     }
     
@@ -9,7 +9,7 @@ if(!Draw.loadImageSet || KAPhy.version !== KAPhy.current) {
     var loadedImages = [];
     
     for(var i = 0; i < imagesToLoad.length; i++) {
-      Draw.loadImage(imagesToLoad[i], function() {
+      KAPhy.Draw.loadImage(imagesToLoad[i], function() {
         loadedImages.push(this);
         imagesLoaded++;
         if(imagesLoaded >= imagesToLoad.length) {

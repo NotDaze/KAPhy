@@ -1,23 +1,38 @@
-if(!Canvas.Animation.prototype.getValue) {
-  Canvas.Animation.prototype.getValue = function() {
-    if(this.looped) {
-      var stage = Canvas.Animation.transitions[this.transition](
-        ((new Date().getTime() - this.startTime)/this.duration) % 1
+if(!KAPhy.Canvas.Animation.getValue) {
+  KAPhy.Canvas.Animation.getValue = function(data) {
+    var now = new Date().getTime();
+    var startTime = data.startTime;
+    var duration = data.duration;
+    
+    var startVal = data.startValue;
+    var endValue = data.finalValue;
+    
+    var stage;
+    
+    if(data.looped) {
+      stage = KAPhy.Canvas.Animation.transitions[data.transition](
+        ((now - startTime)/duration) % 1
+      );
+    }
+    else {
+      stage = KAPhy.Canvas.Animation.transitions[data.transition](
+        ((now - startTime)/duration)
       );
       
-      return (this.startValue + (this.finalValue - this.startValue) * stage);
+      if(stage < 0) return startValue;
+      if(stage > 1) return finalValue;
     }
     
-    var stage = Canvas.Animation.transitions[this.transition](((new Date().getTime() - this.startTime)/this.duration));
-    
-    if(stage < 0) { return this.startValue; }
-    if(stage > 1) { return this.finalValue; }
-    
-    return (this.startValue + (this.finalValue - this.startValue) * stage);
+    return (startValue + (finalValue - startValue) * stage);
   };
 }
-if(!Canvas.Animation.prototype.isExpired) {
-  Canvas.Animation.prototype.isExpired = function() {
+if(!KAPhy.Canvas.Animation.prototype.getValue) {
+  KAPhy.Canvas.Animation.prototype.getValue = function() {
+    return KAPhy.Canvas.Animation.getValue(this);
+  };
+}
+if(!KAPhy.Canvas.Animation.prototype.isExpired) {
+  KAPhy.Canvas.Animation.prototype.isExpired = function() {
     return ((new Date().getTime() - this.startTime) >= this.duration);
   };
 }

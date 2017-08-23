@@ -1,7 +1,7 @@
-if(!Draw.getStroke || KAPhy.version !== KAPhy.current) {
-  Draw.getStroke = function() {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.getStroke) {
+  KAPhy.Draw.getStroke = function() {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
@@ -26,7 +26,7 @@ if(!Draw.getStroke || KAPhy.version !== KAPhy.current) {
       }
     };//Converts a hex digit to a decimal number
     
-    var strokeStyle = Canvas.context.strokeStyle;
+    var strokeStyle = KAPhy.Canvas.context.strokeStyle;
     if(strokeStyle[0] === "#") {
       return {
         r: 16 * hexDigitDec(strokeStyle[1]) + hexDigitDec(strokeStyle[2]),

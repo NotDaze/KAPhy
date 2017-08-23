@@ -1,15 +1,15 @@
-if(!Draw.vertex) {
-  Draw.vertex = function(x, y) {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.vertex) {
+  KAPhy.Draw.vertex = function(x, y) {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
-    if(!Draw.shapeOn) {
-      console.warn("KAPhy Warning - You can only use Draw.vertex() in shape mode.");
+    if(!KAPhy.Draw.shapeOn) {
+      console.warn("KAPhy Warning - You can only use KAPhy.Draw.vertex() in shape mode.");
       return;
     }
     
-    Canvas.context.lineTo(Canvas.toPixels(x), Canvas.toPixels(y));
+    KAPhy.Canvas.context.lineTo(KAPhy.Canvas.toPixels(x), KAPhy.Canvas.toPixels(y));
   };
 }

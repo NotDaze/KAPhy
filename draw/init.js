@@ -1,4 +1,4 @@
-if(!Draw || KAPhy.version !== KAPhy.current) {
+if(!KAPhy.Draw) {
   var CENTER = "CENTER";
   var CORNER = "CORNER";
   var RADIUS = "RADIUS";
@@ -22,7 +22,7 @@ if(!Draw || KAPhy.version !== KAPhy.current) {
   var ALPHABETIC = "alphabetic";
   var HANGING = "hanging";
   
-  var Draw = {
+  KAPhy.Draw = {
     currentRectMode: "CORNER",
     currentImageMode: "CORNER",
     currentEllipseMode: "CENTER",

@@ -1,12 +1,12 @@
 /*
-  This is just a simple Equation toolkit
+  This is just a simple KAPhy.Physics.Equation toolkit
   However, it has several important uses
   For example, it is useful when calculating reflections
   
   It finds simple things like slopes and y-intercepts
 */
-if(!Equation) {
-  var Equation = {
+if(!KAPhy.Physics.Equation) {
+  KAPhy.Physics.Equation = {
     /*
      The M function finds the slope of a line.
      The line is defined by two points, a and b.

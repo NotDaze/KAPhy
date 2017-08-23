@@ -1,7 +1,7 @@
-if(!Draw.getFill || KAPhy.version !== KAPhy.current) {
-  Draw.getFill = function() {
-    if(!Canvas.configured) {
-      console.warn("KAPhy Warning - You must use Canvas.configure(); before you can draw!");
+if(!KAPhy.Draw.getFill) {
+  KAPhy.Draw.getFill = function() {
+    if(!KAPhy.Canvas.configured) {
+      console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
       return;
     }
     
@@ -26,7 +26,7 @@ if(!Draw.getFill || KAPhy.version !== KAPhy.current) {
       }
     };
     
-    var fillStyle = Canvas.context.fillStyle;
+    var fillStyle = KAPhy.Canvas.context.fillStyle;
     if(fillStyle[0] === "#") {
       return {
         r: 16 * hexDigitDec(fillStyle[1]) + hexDigitDec(fillStyle[2]),
