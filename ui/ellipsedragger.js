@@ -5,7 +5,7 @@ if(!KAPhy.Interface.EllipseDragger) {
     this.onMove = config.onMove || function() {};
   };
   KAPhy.Interface.EllipseDragger.prototype = Object.create(KAPhy.Interface.EllipseButton.prototype);
-  KAPhy.Interface.RectDragger.prototype.drag = function() {
+  KAPhy.Interface.EllipseDragger.prototype.drag = function() {
     if(KAPhy.Interface.selected === this) {
       if(KAPhy.Canvas.pmouseX !== KAPhy.Canvas.mouseX ||
          KAPhy.Canvas.pmouseY !== KAPhy.Canvas.mouseY) {
