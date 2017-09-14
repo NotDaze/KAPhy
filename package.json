@@ -1,0 +1,30 @@
+{
+	"name": "KAPhy",
+	"version": "0.1.0",
+	"description": "A physics engine for the Khan Academy Computer Science webpage environment",
+	"main": "kaphy.js",
+	"author": "TemporalFuzz",
+	"contributors": [],
+	"scripts": {
+		"build": "gulp build"
+	},
+	"dependencies": {},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/temporalfuzz/kaphy"
+	},
+	"keywords": [
+		"khanacademy",
+		"physics",
+		"js"
+	],
+	"bugs": {
+		"url": "https://github.com/temporalfuzz/kaphy/issues"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"gulp": "^3.9.1",
+		"gulp-concat": "^2.6.1",
+		"gulp-uglify": "^3.0.0"
+	}
+}
