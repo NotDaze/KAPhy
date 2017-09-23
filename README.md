@@ -4,3 +4,5 @@ It provides a lot of functionality. It does the seemingly impossible and utilize
 Despite this, it works pretty smoothly with the tests I've done so far.
 
 Status: First release!
+
+Use `npm run build` to build KAPhy.

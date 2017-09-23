@@ -9,11 +9,11 @@ I'm sure you want to know more. Go to https://github.com/TemporalFuzz/KAPhy for 
 <html>
     <head>
         <title>KAPhy KAPhy.Physics Demo</title>
-        <script type="text/javascript" src="./main/init.js"></script>
     </head>
     <body style="background-color: #AAA;margin:0px">
         <canvas id="canvas" style="margin:auto;background-color:#FFF;display:block">You don't have canvas support! Try switching to a different browser.</canvas>
     </body>
+	 <script type="text/javascript" src="./kaphy.min.js"></script>
     <script>
         var ui = [];
         
@@ -59,9 +59,7 @@ I'm sure you want to know more. Go to https://github.com/TemporalFuzz/KAPhy for 
             }
         };
         
-        KAPhy.load(function() {
-            begin();
-            KAPhy.loop(loop);
-        });
+		  begin();
+        KAPhy.loop(loop);
     </script>
 </html>
