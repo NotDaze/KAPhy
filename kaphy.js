@@ -1995,7 +1995,6 @@ KAPhy.Physics.Circle.prototype.collideLine = function(line) {
   var two = line.two.canvasMap();
 
   var prp = KAPhy.Physics.Vector2.sub(pos, vel);
-  var pri = false;
 
   if (one.x === two.x ||
     one.y === two.y) {
@@ -2005,8 +2004,6 @@ KAPhy.Physics.Circle.prototype.collideLine = function(line) {
   if (!KAPhy.Physics.Collision.circleCollidingLine(one, two, pos, this.rad + line.rad)) {
     if (!KAPhy.Physics.Collision.intersecting(one, two, pos, prp)) {
       return;
-    } else {
-      pri = true;
     }
   }
   if (!KAPhy.Physics.Collision.intersecting(pos, KAPhy.Physics.Vector2.reflect(pos, one, two), one, two)) {
@@ -2042,7 +2039,7 @@ KAPhy.Physics.Circle.prototype.collideLine = function(line) {
               KAPhy.Physics.Equation.PM(one, two)
             )
           ),
-          (this.rad + line.rad + 0.5) * (pos.y > n.y ? -1 : 1) * (one.x > two.x ? -1 : 1) * (one.y > two.y ? -1 : 1) * (pri ? -1 : 1))
+          (this.rad + line.rad + 0.5) * (prp.y > n.y ? -1 : 1) * (one.x > two.x ? -1 : 1) * (one.y > two.y ? -1 : 1))
       ).canvasUnmap();
   }
   this.trySleep();
