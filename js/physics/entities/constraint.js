@@ -30,8 +30,6 @@ if (!KAPhy.Physics.Constraint) {
     }
   };
   KAPhy.Physics.Constraint.prototype.draw = function() {
-    KAPhy.Draw.strokeWeight(3);
-    KAPhy.Draw.stroke(0, 0, 0);
     KAPhy.Draw.line(this.one.pos.x, this.one.pos.y, this.two.pos.x, this.two.pos.y);
   };
   KAPhy.Physics.Constraint.prototype.display = function() {
