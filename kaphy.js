@@ -425,7 +425,7 @@ if (!KAPhy.Canvas.configure) {
       if(KAPhy.Canvas.mouseOver) { KAPhy.Canvas.mouseOver(); }
     };
     
-    window.onkeydown = function(e) {
+    document.onkeydown = function(e) {
       if(KAPhy.Canvas.keys[e.key.toLowerCase()]) { return; }
       
       KAPhy.Canvas.keys[e.key.toLowerCase()] = true;
@@ -436,7 +436,7 @@ if (!KAPhy.Canvas.configure) {
       if(KAPhy.Canvas.keyPressed) { KAPhy.Canvas.keyPressed(); }
     };
     
-    window.onkeyup = function(e) {
+    document.onkeyup = function(e) {
       if(!KAPhy.Canvas.keys[e.key.toLowerCase()]) { return; }
       
       KAPhy.Canvas.keys[e.key.toLowerCase()] = false;
@@ -484,8 +484,8 @@ if (!KAPhy.Canvas.deconfigure) {
     KAPhy.Canvas.element = null;
     KAPhy.Canvas.configured = false;
     
-    window.onkeydown = null;
-    window.onkeyup = null;
+    document.onkeydown = null;
+    document.onkeyup = null;
     KAPhy.Canvas.lastKeyUp = null;
     KAPhy.Canvas.lastKeyDown = null;
     KAPhy.Canvas.keyIsPressed = null;
