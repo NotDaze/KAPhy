@@ -16,7 +16,10 @@ if(!KAPhy.Draw.background) {
     KAPhy.Canvas.context.resetTransform();
     
     switch(arguments.length) {
-      case 0: KAPhy.Draw.fill(); break;
+      case 0: 
+        KAPhy.Canvas.context.clearRect(0, 0, KAPhy.Canvas.element.width, KAPhy.Canvas.element.height);
+        return;
+        break;
       case 1: KAPhy.Draw.fill(r); break;
       case 2: KAPhy.Draw.fill(r, g); break;
       case 3: KAPhy.Draw.fill(r, g, b); break;
