@@ -135,7 +135,7 @@ if(!KAPhy.Canvas.Animation.getValue) {
     var startTime = data.startTime;
     var duration = data.duration;
     
-    var startVal = data.startValue;
+    var startValue = data.startValue;
     var endValue = data.finalValue;
     
     var stage;
@@ -154,7 +154,7 @@ if(!KAPhy.Canvas.Animation.getValue) {
       if(stage > 1) return finalValue;
     }
     
-    return (startValue + (finalValue - startValue) * stage);
+    return (startValue + (endValue - startValue) * stage);
   };
 }
 if(!KAPhy.Canvas.Animation.prototype.getValue) {
@@ -1713,8 +1713,8 @@ if(!KAPhy.Draw.line) {
     }
     
     KAPhy.Canvas.context.beginPath();
-    KAPhy.Canvas.context.moveTo(x1, y1);
-    KAPhy.Canvas.context.lineTo(x2, y2);
+    KAPhy.Canvas.context.moveTo(KAPhy.Canvas.toPixels(x1), KAPhy.Canvas.toPixels(y1));
+    KAPhy.Canvas.context.lineTo(KAPhy.Canvas.toPixels(x2), KAPhy.Canvas.toPixels(y2));
     KAPhy.Canvas.context.stroke();
   };
 }
@@ -1732,8 +1732,8 @@ if(!KAPhy.Draw.point) {
     }
     
     KAPhy.Canvas.context.beginPath();
-    KAPhy.Canvas.context.moveTo(x, y);
-    KAPhy.Canvas.context.lineTo(x, y);
+    KAPhy.Canvas.context.moveTo(KAPhy.Canvas.toPixels(x), KAPhy.Canvas.toPixels(y));
+    KAPhy.Canvas.context.lineTo(KAPhy.Canvas.toPixels(x), KAPhy.Canvas.toPixels(y));
     KAPhy.Canvas.context.stroke();
   };
 }
