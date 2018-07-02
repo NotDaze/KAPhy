@@ -11,8 +11,8 @@ if(!KAPhy.Draw.line) {
     }
     
     KAPhy.Canvas.context.beginPath();
-    KAPhy.Canvas.context.moveTo(x1, y1);
-    KAPhy.Canvas.context.lineTo(x2, y2);
+    KAPhy.Canvas.context.moveTo(KAPhy.Canvas.toPixels(x1), KAPhy.Canvas.toPixels(y1));
+    KAPhy.Canvas.context.lineTo(KAPhy.Canvas.toPixels(x2), KAPhy.Canvas.toPixels(y2));
     KAPhy.Canvas.context.stroke();
   };
 }
