@@ -153,7 +153,7 @@ KAPhy.Canvas.AnimationSet.prototype.isExpired = function() {
   return false;
 };
 
-/** Animation Core **/
+/** Experimental KA Import **/
 KAPhy.ImportKA = function(id, onLoad) {
   function read(raw) {
     var data = JSON.parse(raw.revision.code);
@@ -195,6 +195,17 @@ KAPhy.frameRate = function(newFrameRate) {
       KAPhy.Canvas.update();
     }, 1000/KAPhy.loopedFunctionFrameRate);
   }
+};
+KAPhy.noArrowScroll = function() {
+  window.addEventListener("keydown", function(event) {
+    if(event.keyCode === 32 ||
+       event.keyCode === 37 ||
+       event.keyCode === 38 ||
+       event.keyCode === 39 ||
+       event.keyCode === 40) {
+      event.preventDefault();
+    }
+  });
 };
 
 /** INTERFACE **/{
