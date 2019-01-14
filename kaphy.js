@@ -1321,6 +1321,18 @@ KAPhy.Draw.getTextAlign = function() {
   
   return KAPhy.Canvas.context.textAlign;
 };
+KAPhy.Draw.getTextBaseline = function() {
+  if(!KAPhy.Canvas.configured) {
+    console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
+    return;
+  }
+  
+  if(arguments.length > 0) {
+    console.warn("KAPhy Warning - KAPhy.Draw.getTextAlign() takes 0 arguments.");
+  }
+  
+  return KAPhy.Canvas.context.textBaseline;
+};
 KAPhy.Draw.getTextFont = function() {
   if(!KAPhy.Canvas.configured) {
     console.warn("KAPhy Warning - You must use KAPhy.Canvas.configure(); before you can draw!");
@@ -1338,7 +1350,7 @@ KAPhy.Draw.getTextLineSpacing = function() {
   }
   
   if(arguments.length !== 0) {
-    console.warn("KAPhy Warning - KAPhy.Draw.getTextLineSpacing() takes 0 argument.");
+    console.warn("KAPhy Warning - KAPhy.Draw.getTextLineSpacing() takes 0 arguments.");
   }
   
   return KAPhy.Draw.currentTextLineSpacing;
@@ -1717,7 +1729,7 @@ KAPhy.Draw.text = function(content, x, y) {
   var enterSplit = content.split("\n");
   
   var adjust = 0;
-  if(KAPhy.Draw.getTextBaseline().toLowerCase() === "middle") {
+  if(KAPhy.Draw.getTextBaseline.toLowerCase() === "middle") {
     adjust = -0.5 * (enterSplit.length - 1) * size * (1 + KAPhy.Draw.currentTextLineSpacing);
   }
   
