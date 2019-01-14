@@ -1729,7 +1729,7 @@ KAPhy.Draw.text = function(content, x, y) {
   var enterSplit = content.split("\n");
   
   var adjust = 0;
-  if(KAPhy.Draw.getTextBaseline.toLowerCase() === "middle") {
+  if(KAPhy.Draw.getTextBaseline().toLowerCase() === "middle") {
     adjust = -0.5 * (enterSplit.length - 1) * size * (1 + KAPhy.Draw.currentTextLineSpacing);
   }
   
