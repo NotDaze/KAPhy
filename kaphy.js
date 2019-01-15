@@ -1885,7 +1885,7 @@ KAPhy.Physics.Circle.prototype.collideLine = function(line, onCollision) {
       return;
     }
   }
-  onCollision.call(this, line);
+  if(onCollision) { onCollision.call(this, line); }
   if (!KAPhy.Physics.Collision.intersecting(pos, KAPhy.Physics.Vector2.reflect(pos, one, two), one, two)) {
     var n = (KAPhy.Physics.Vector2.distSq(pos, one) < KAPhy.Physics.Vector2.distSq(pos, two)) ? one : two;
     this.vel =
