@@ -1867,7 +1867,7 @@ KAPhy.Physics.Circle.prototype.moveFrom = function(target, force) {
 };
 
 /** Circle-Line Collision **/
-KAPhy.Physics.Circle.prototype.collideLine = function(line) {
+KAPhy.Physics.Circle.prototype.collideLine = function(line, onCollision) {
   var pos = this.pos.canvasMap();
   var vel = this.vel.canvasMap();
   var one = line.one.canvasMap();
@@ -1885,6 +1885,7 @@ KAPhy.Physics.Circle.prototype.collideLine = function(line) {
       return;
     }
   }
+  onCollision.call(this, line);
   if (!KAPhy.Physics.Collision.intersecting(pos, KAPhy.Physics.Vector2.reflect(pos, one, two), one, two)) {
     var n = (KAPhy.Physics.Vector2.distSq(pos, one) < KAPhy.Physics.Vector2.distSq(pos, two)) ? one : two;
     this.vel =
