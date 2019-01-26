@@ -980,6 +980,35 @@ KAPhy.Draw.loadNativeImageSet = function(imagesToLoad, onFinish) {
     });
   }
 };
+  
+KAPhy.Draw.pixelArt = function(data, keys, quality) {
+  var width = data[0].length;
+  var height = data.length;
+  
+  var newCanvas = document.createElement("canvas");
+  newCanvas.width  = width * (quality || 4);
+  newCanvas.height = height * (quality || 4);
+  var newCanvasContext = newCanvas.getContext("2d");
+  
+  for(var i = 0; i < height; i++) {
+    for(var j = 0; j < width; j++) {
+      if(keys[data[i][j]]) {
+        var color = keys[data[i][j]];
+        newCanvasContext.fillStyle = "rgba(" + color.r + ", " + color.g + ", " + color.b + ", " + (color.a || 255)/255 + ")";
+        newCanvasContext.fillRect(j * (quality || 4), i * (quality || 4), (quality || 4), (quality || 4));
+      }
+    }
+  }
+  
+  return newCanvas;
+};
+
+KAPhy.Draw.processImages = function(imageSet, onFinish) {
+  for(var i in imageSet) {
+    imageSet[i] = imageSet[i]();
+  }
+  onFinish();
+};
 
 /** Transformation Commands **/
 KAPhy.Draw.popMatrix = function() {
